@@ -30,6 +30,7 @@ export interface GetBitbucketDatacenterIntegrationResult {
     readonly labels: string[];
     readonly name: string;
     readonly spaceId: string;
+    readonly useGitCheckout: boolean;
     readonly userFacingHost: string;
     readonly username: string;
     readonly vcsChecks: string;

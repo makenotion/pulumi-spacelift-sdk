@@ -61,6 +61,11 @@ export class BitbucketDatacenterIntegration extends pulumi.CustomResource {
      */
     public readonly spaceId!: pulumi.Output<string>;
     /**
+     * Indicates whether the integration should use git checkout. If false source code will be downloaded using the VCS API.
+     * Defaults to false.
+     */
+    public readonly useGitCheckout!: pulumi.Output<boolean>;
+    /**
      * User Facing Host which will be used for all user-facing URLs displayed in the Spacelift UI
      */
     public readonly userFacingHost!: pulumi.Output<string>;
@@ -102,6 +107,7 @@ export class BitbucketDatacenterIntegration extends pulumi.CustomResource {
             resourceInputs["labels"] = state ? state.labels : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["spaceId"] = state ? state.spaceId : undefined;
+            resourceInputs["useGitCheckout"] = state ? state.useGitCheckout : undefined;
             resourceInputs["userFacingHost"] = state ? state.userFacingHost : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
             resourceInputs["vcsChecks"] = state ? state.vcsChecks : undefined;
@@ -131,6 +137,7 @@ export class BitbucketDatacenterIntegration extends pulumi.CustomResource {
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["spaceId"] = args ? args.spaceId : undefined;
+            resourceInputs["useGitCheckout"] = args ? args.useGitCheckout : undefined;
             resourceInputs["userFacingHost"] = args ? args.userFacingHost : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["vcsChecks"] = args ? args.vcsChecks : undefined;
@@ -176,6 +183,11 @@ export interface BitbucketDatacenterIntegrationState {
      * Bitbucket Datacenter integration space id. Defaults to `root`.
      */
     spaceId?: pulumi.Input<string>;
+    /**
+     * Indicates whether the integration should use git checkout. If false source code will be downloaded using the VCS API.
+     * Defaults to false.
+     */
+    useGitCheckout?: pulumi.Input<boolean>;
     /**
      * User Facing Host which will be used for all user-facing URLs displayed in the Spacelift UI
      */
@@ -231,6 +243,11 @@ export interface BitbucketDatacenterIntegrationArgs {
      * Bitbucket Datacenter integration space id. Defaults to `root`.
      */
     spaceId?: pulumi.Input<string>;
+    /**
+     * Indicates whether the integration should use git checkout. If false source code will be downloaded using the VCS API.
+     * Defaults to false.
+     */
+    useGitCheckout?: pulumi.Input<boolean>;
     /**
      * User Facing Host which will be used for all user-facing URLs displayed in the Spacelift UI
      */

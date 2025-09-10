@@ -307,6 +307,7 @@ export interface GetStacksStack {
     enableLocalPreview: boolean;
     enableSensitiveOutputsUpload: boolean;
     enableWellKnownSecretMasking: boolean;
+    gitSparseCheckoutPaths: string[];
     githubEnterprises: outputs.GetStacksStackGithubEnterprise[];
     gitlabs: outputs.GetStacksStackGitlab[];
     kubernetes: outputs.GetStacksStackKubernete[];
@@ -412,6 +413,11 @@ export interface GetStacksWorkerPool {
     anyOfs: string[];
 }
 
+export interface GetUserPolicy {
+    role: string;
+    spaceId: string;
+}
+
 export interface GetVcsAgentPoolsVcsAgentPool {
     description: string;
     name: string;
@@ -421,6 +427,7 @@ export interface GetVcsAgentPoolsVcsAgentPool {
 export interface GetWorkerPoolsWorkerPool {
     config: string;
     description: string;
+    driftDetectionRunLimit: number;
     name: string;
     spaceId: string;
     workerPoolId: string;
@@ -432,7 +439,7 @@ export interface IdpGroupMappingPolicy {
      */
     role: string;
     /**
-     * ID (slug) of the space the user group has access to
+     * ID (slug) of the space the IdP group mapping has access to
      */
     spaceId: string;
 }

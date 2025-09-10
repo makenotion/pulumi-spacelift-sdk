@@ -11,6 +11,7 @@ export function getAwsIntegrations(args?: GetAwsIntegrationsArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("spacelift:index/getAwsIntegrations:getAwsIntegrations", {
         "id": args.id,
+        "labels": args.labels,
     }, opts, utilities.getPackage());
 }
 
@@ -19,6 +20,7 @@ export function getAwsIntegrations(args?: GetAwsIntegrationsArgs, opts?: pulumi.
  */
 export interface GetAwsIntegrationsArgs {
     id?: string;
+    labels?: string[];
 }
 
 /**
@@ -27,12 +29,14 @@ export interface GetAwsIntegrationsArgs {
 export interface GetAwsIntegrationsResult {
     readonly id: string;
     readonly integrations: outputs.GetAwsIntegrationsIntegration[];
+    readonly labels?: string[];
 }
 export function getAwsIntegrationsOutput(args?: GetAwsIntegrationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsIntegrationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("spacelift:index/getAwsIntegrations:getAwsIntegrations", {
         "id": args.id,
+        "labels": args.labels,
     }, opts, utilities.getPackage());
 }
 
@@ -41,4 +45,5 @@ export function getAwsIntegrationsOutput(args?: GetAwsIntegrationsOutputArgs, op
  */
 export interface GetAwsIntegrationsOutputArgs {
     id?: pulumi.Input<string>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
 }

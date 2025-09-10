@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/spacelift",
-    "version": "1.26.0",
+    "version": "1.31.0",
     "description": "A Pulumi provider dynamically bridged from spacelift.",
     "repository": "https://github.com/spacelift-io/terraform-provider-spacelift",
     "main": "bin/index.js",
@@ -19,11 +19,11 @@
     "pulumi": {
         "resource": true,
         "name": "terraform-provider",
-        "version": "0.12.0",
+        "version": "0.13.0",
         "parameterization": {
             "name": "spacelift",
-            "version": "1.26.0",
-            "value": "eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL3NwYWNlbGlmdC1pby9zcGFjZWxpZnQiLCJ2ZXJzaW9uIjoiMS4yNi4wIn19"
+            "version": "1.31.0",
+            "value": "eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL3NwYWNlbGlmdC1pby9zcGFjZWxpZnQiLCJ2ZXJzaW9uIjoiMS4zMS4wIn19"
         }
     }
 }

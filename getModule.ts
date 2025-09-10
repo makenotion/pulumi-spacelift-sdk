@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("spacelift:index/getModule:getModule", {
+        "gitSparseCheckoutPaths": args.gitSparseCheckoutPaths,
         "id": args.id,
         "moduleId": args.moduleId,
     }, opts, utilities.getPackage());
@@ -18,6 +19,7 @@ export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getModule.
  */
 export interface GetModuleArgs {
+    gitSparseCheckoutPaths?: string[];
     id?: string;
     moduleId: string;
 }
@@ -34,6 +36,7 @@ export interface GetModuleResult {
     readonly branch: string;
     readonly description: string;
     readonly enableLocalPreview: boolean;
+    readonly gitSparseCheckoutPaths?: string[];
     readonly githubEnterprises: outputs.GetModuleGithubEnterprise[];
     readonly gitlabs: outputs.GetModuleGitlab[];
     readonly id: string;
@@ -44,6 +47,7 @@ export interface GetModuleResult {
     readonly protectFromDeletion: boolean;
     readonly rawGits: outputs.GetModuleRawGit[];
     readonly repository: string;
+    readonly runnerImage: string;
     readonly sharedAccounts: string[];
     readonly spaceId: string;
     readonly terraformProvider: string;
@@ -53,6 +57,7 @@ export interface GetModuleResult {
 export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("spacelift:index/getModule:getModule", {
+        "gitSparseCheckoutPaths": args.gitSparseCheckoutPaths,
         "id": args.id,
         "moduleId": args.moduleId,
     }, opts, utilities.getPackage());
@@ -62,6 +67,7 @@ export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getModule.
  */
 export interface GetModuleOutputArgs {
+    gitSparseCheckoutPaths?: pulumi.Input<pulumi.Input<string>[]>;
     id?: pulumi.Input<string>;
     moduleId: pulumi.Input<string>;
 }

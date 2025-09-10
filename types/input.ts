@@ -257,7 +257,7 @@ export interface IdpGroupMappingPolicy {
      */
     role: pulumi.Input<string>;
     /**
-     * ID (slug) of the space the user group has access to
+     * ID (slug) of the space the IdP group mapping has access to
      */
     spaceId: pulumi.Input<string>;
 }

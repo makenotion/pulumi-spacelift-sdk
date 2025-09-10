@@ -35,15 +35,20 @@ export class IdpGroupMapping extends pulumi.CustomResource {
     }
 
     /**
-     * Description of the user group
+     * Description of the IdP group mapping
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly idpGroupMappingId!: pulumi.Output<string>;
     /**
-     * Name of the user group - should be unique in one account
+     * Name of the IdP group as defined in the SSO provider - should be unique per account
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly policies!: pulumi.Output<outputs.IdpGroupMappingPolicy[]>;
+    /**
+     * List of access rules for the IdP group.
+     *
+     * @deprecated Deprecated
+     */
+    public readonly policies!: pulumi.Output<outputs.IdpGroupMappingPolicy[] | undefined>;
 
     /**
      * Create a IdpGroupMapping resource with the given unique name, arguments, and options.
@@ -52,7 +57,7 @@ export class IdpGroupMapping extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IdpGroupMappingArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: IdpGroupMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdpGroupMappingArgs | IdpGroupMappingState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -64,9 +69,6 @@ export class IdpGroupMapping extends pulumi.CustomResource {
             resourceInputs["policies"] = state ? state.policies : undefined;
         } else {
             const args = argsOrState as IdpGroupMappingArgs | undefined;
-            if ((!args || args.policies === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policies'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["idpGroupMappingId"] = args ? args.idpGroupMappingId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -82,14 +84,19 @@ export class IdpGroupMapping extends pulumi.CustomResource {
  */
 export interface IdpGroupMappingState {
     /**
-     * Description of the user group
+     * Description of the IdP group mapping
      */
     description?: pulumi.Input<string>;
     idpGroupMappingId?: pulumi.Input<string>;
     /**
-     * Name of the user group - should be unique in one account
+     * Name of the IdP group as defined in the SSO provider - should be unique per account
      */
     name?: pulumi.Input<string>;
+    /**
+     * List of access rules for the IdP group.
+     *
+     * @deprecated Deprecated
+     */
     policies?: pulumi.Input<pulumi.Input<inputs.IdpGroupMappingPolicy>[]>;
 }
 
@@ -98,13 +105,18 @@ export interface IdpGroupMappingState {
  */
 export interface IdpGroupMappingArgs {
     /**
-     * Description of the user group
+     * Description of the IdP group mapping
      */
     description?: pulumi.Input<string>;
     idpGroupMappingId?: pulumi.Input<string>;
     /**
-     * Name of the user group - should be unique in one account
+     * Name of the IdP group as defined in the SSO provider - should be unique per account
      */
     name?: pulumi.Input<string>;
-    policies: pulumi.Input<pulumi.Input<inputs.IdpGroupMappingPolicy>[]>;
+    /**
+     * List of access rules for the IdP group.
+     *
+     * @deprecated Deprecated
+     */
+    policies?: pulumi.Input<pulumi.Input<inputs.IdpGroupMappingPolicy>[]>;
 }

@@ -44,6 +44,10 @@ export class WorkerPool extends pulumi.CustomResource {
      * description of the worker pool
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Limit of how many concurrent drift detection runs are allowed per worker pool
+     */
+    public readonly driftDetectionRunLimit!: pulumi.Output<number | undefined>;
     public readonly labels!: pulumi.Output<string[] | undefined>;
     /**
      * name of the worker pool
@@ -75,6 +79,7 @@ export class WorkerPool extends pulumi.CustomResource {
             resourceInputs["config"] = state ? state.config : undefined;
             resourceInputs["csr"] = state ? state.csr : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["driftDetectionRunLimit"] = state ? state.driftDetectionRunLimit : undefined;
             resourceInputs["labels"] = state ? state.labels : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
@@ -84,6 +89,7 @@ export class WorkerPool extends pulumi.CustomResource {
             const args = argsOrState as WorkerPoolArgs | undefined;
             resourceInputs["csr"] = args?.csr ? pulumi.secret(args.csr) : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["driftDetectionRunLimit"] = args ? args.driftDetectionRunLimit : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["spaceId"] = args ? args.spaceId : undefined;
@@ -114,6 +120,10 @@ export interface WorkerPoolState {
      * description of the worker pool
      */
     description?: pulumi.Input<string>;
+    /**
+     * Limit of how many concurrent drift detection runs are allowed per worker pool
+     */
+    driftDetectionRunLimit?: pulumi.Input<number>;
     labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * name of the worker pool
@@ -142,6 +152,10 @@ export interface WorkerPoolArgs {
      * description of the worker pool
      */
     description?: pulumi.Input<string>;
+    /**
+     * Limit of how many concurrent drift detection runs are allowed per worker pool
+     */
+    driftDetectionRunLimit?: pulumi.Input<number>;
     labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * name of the worker pool
