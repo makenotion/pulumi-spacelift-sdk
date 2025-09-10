@@ -21,6 +21,7 @@ export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promi
         "beforeInits": args.beforeInits,
         "beforePerforms": args.beforePerforms,
         "beforePlans": args.beforePlans,
+        "gitSparseCheckoutPaths": args.gitSparseCheckoutPaths,
         "id": args.id,
         "stackId": args.stackId,
     }, opts, utilities.getPackage());
@@ -42,6 +43,7 @@ export interface GetStackArgs {
     beforeInits?: string[];
     beforePerforms?: string[];
     beforePlans?: string[];
+    gitSparseCheckoutPaths?: string[];
     id?: string;
     stackId: string;
 }
@@ -76,6 +78,7 @@ export interface GetStackResult {
     readonly enableLocalPreview: boolean;
     readonly enableSensitiveOutputsUpload: boolean;
     readonly enableWellKnownSecretMasking: boolean;
+    readonly gitSparseCheckoutPaths?: string[];
     readonly githubEnterprises: outputs.GetStackGithubEnterprise[];
     readonly gitlabs: outputs.GetStackGitlab[];
     readonly id: string;
@@ -115,6 +118,7 @@ export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOut
         "beforeInits": args.beforeInits,
         "beforePerforms": args.beforePerforms,
         "beforePlans": args.beforePlans,
+        "gitSparseCheckoutPaths": args.gitSparseCheckoutPaths,
         "id": args.id,
         "stackId": args.stackId,
     }, opts, utilities.getPackage());
@@ -136,6 +140,7 @@ export interface GetStackOutputArgs {
     beforeInits?: pulumi.Input<pulumi.Input<string>[]>;
     beforePerforms?: pulumi.Input<pulumi.Input<string>[]>;
     beforePlans?: pulumi.Input<pulumi.Input<string>[]>;
+    gitSparseCheckoutPaths?: pulumi.Input<pulumi.Input<string>[]>;
     id?: pulumi.Input<string>;
     stackId: pulumi.Input<string>;
 }

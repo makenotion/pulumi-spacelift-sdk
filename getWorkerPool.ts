@@ -26,6 +26,7 @@ export interface GetWorkerPoolArgs {
 export interface GetWorkerPoolResult {
     readonly config: string;
     readonly description: string;
+    readonly driftDetectionRunLimit: number;
     readonly id: string;
     readonly labels: string[];
     readonly name: string;

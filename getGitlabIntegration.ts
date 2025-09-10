@@ -30,6 +30,7 @@ export interface GetGitlabIntegrationResult {
     readonly labels: string[];
     readonly name: string;
     readonly spaceId: string;
+    readonly useGitCheckout: boolean;
     readonly vcsChecks: string;
     readonly webhookSecret: string;
     readonly webhookUrl: string;

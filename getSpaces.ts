@@ -11,6 +11,7 @@ export function getSpaces(args?: GetSpacesArgs, opts?: pulumi.InvokeOptions): Pr
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("spacelift:index/getSpaces:getSpaces", {
         "id": args.id,
+        "labels": args.labels,
     }, opts, utilities.getPackage());
 }
 
@@ -19,6 +20,7 @@ export function getSpaces(args?: GetSpacesArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetSpacesArgs {
     id?: string;
+    labels?: string[];
 }
 
 /**
@@ -26,6 +28,7 @@ export interface GetSpacesArgs {
  */
 export interface GetSpacesResult {
     readonly id: string;
+    readonly labels?: string[];
     readonly spaces: outputs.GetSpacesSpace[];
 }
 export function getSpacesOutput(args?: GetSpacesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpacesResult> {
@@ -33,6 +36,7 @@ export function getSpacesOutput(args?: GetSpacesOutputArgs, opts?: pulumi.Invoke
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("spacelift:index/getSpaces:getSpaces", {
         "id": args.id,
+        "labels": args.labels,
     }, opts, utilities.getPackage());
 }
 
@@ -41,4 +45,5 @@ export function getSpacesOutput(args?: GetSpacesOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetSpacesOutputArgs {
     id?: pulumi.Input<string>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
 }

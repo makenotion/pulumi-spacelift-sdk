@@ -215,6 +215,16 @@ export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
 
+export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
+export const getRole: typeof import("./getRole").getRole = null as any;
+export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
+
+export { GetRoleActionsArgs, GetRoleActionsResult, GetRoleActionsOutputArgs } from "./getRoleActions";
+export const getRoleActions: typeof import("./getRoleActions").getRoleActions = null as any;
+export const getRoleActionsOutput: typeof import("./getRoleActions").getRoleActionsOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleActions","getRoleActionsOutput"], () => require("./getRoleActions"));
+
 export { GetSavedFilterArgs, GetSavedFilterResult, GetSavedFilterOutputArgs } from "./getSavedFilter";
 export const getSavedFilter: typeof import("./getSavedFilter").getSavedFilter = null as any;
 export const getSavedFilterOutput: typeof import("./getSavedFilter").getSavedFilterOutput = null as any;
@@ -279,6 +289,11 @@ export { GetToolVersionsArgs, GetToolVersionsResult, GetToolVersionsOutputArgs }
 export const getToolVersions: typeof import("./getToolVersions").getToolVersions = null as any;
 export const getToolVersionsOutput: typeof import("./getToolVersions").getToolVersionsOutput = null as any;
 utilities.lazyLoad(exports, ["getToolVersions","getToolVersionsOutput"], () => require("./getToolVersions"));
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
 export { GetVcsAgentPoolArgs, GetVcsAgentPoolResult, GetVcsAgentPoolOutputArgs } from "./getVcsAgentPool";
 export const getVcsAgentPool: typeof import("./getVcsAgentPool").getVcsAgentPool = null as any;
@@ -347,6 +362,16 @@ utilities.lazyLoad(exports, ["PolicyAttachment"], () => require("./policyAttachm
 
 export * from "./provider";
 import { Provider } from "./provider";
+
+export { RoleArgs, RoleState } from "./role";
+export type Role = import("./role").Role;
+export const Role: typeof import("./role").Role = null as any;
+utilities.lazyLoad(exports, ["Role"], () => require("./role"));
+
+export { RoleAttachmentArgs, RoleAttachmentState } from "./roleAttachment";
+export type RoleAttachment = import("./roleAttachment").RoleAttachment;
+export const RoleAttachment: typeof import("./roleAttachment").RoleAttachment = null as any;
+utilities.lazyLoad(exports, ["RoleAttachment"], () => require("./roleAttachment"));
 
 export { RunArgs, RunState } from "./run";
 export type Run = import("./run").Run;
@@ -509,6 +534,10 @@ const _module = {
                 return new Policy(name, <any>undefined, { urn })
             case "spacelift:index/policyAttachment:PolicyAttachment":
                 return new PolicyAttachment(name, <any>undefined, { urn })
+            case "spacelift:index/role:Role":
+                return new Role(name, <any>undefined, { urn })
+            case "spacelift:index/roleAttachment:RoleAttachment":
+                return new RoleAttachment(name, <any>undefined, { urn })
             case "spacelift:index/run:Run":
                 return new Run(name, <any>undefined, { urn })
             case "spacelift:index/savedFilter:SavedFilter":
@@ -577,6 +606,8 @@ pulumi.runtime.registerResourceModule("spacelift", "index/namedWebhook", _module
 pulumi.runtime.registerResourceModule("spacelift", "index/namedWebhookSecretHeader", _module)
 pulumi.runtime.registerResourceModule("spacelift", "index/policy", _module)
 pulumi.runtime.registerResourceModule("spacelift", "index/policyAttachment", _module)
+pulumi.runtime.registerResourceModule("spacelift", "index/role", _module)
+pulumi.runtime.registerResourceModule("spacelift", "index/roleAttachment", _module)
 pulumi.runtime.registerResourceModule("spacelift", "index/run", _module)
 pulumi.runtime.registerResourceModule("spacelift", "index/savedFilter", _module)
 pulumi.runtime.registerResourceModule("spacelift", "index/scheduledDeleteStack", _module)

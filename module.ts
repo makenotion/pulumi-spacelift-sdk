@@ -67,6 +67,11 @@ export class Module extends pulumi.CustomResource {
      */
     public readonly enableLocalPreview!: pulumi.Output<boolean | undefined>;
     /**
+     * Git sparse checkout paths is an optional list of paths to use for sparse checkout. If not set, the entire repository
+     * will be checked out.
+     */
+    public readonly gitSparseCheckoutPaths!: pulumi.Output<string[] | undefined>;
+    /**
      * GitHub Enterprise (self-hosted) VCS settings
      */
     public readonly githubEnterprise!: pulumi.Output<outputs.ModuleGithubEnterprise | undefined>;
@@ -97,6 +102,10 @@ export class Module extends pulumi.CustomResource {
      * Name of the repository, without the owner part
      */
     public readonly repository!: pulumi.Output<string>;
+    /**
+     * Name of the Docker image used to process Runs
+     */
+    public readonly runnerImage!: pulumi.Output<string | undefined>;
     /**
      * List of the accounts (subdomains) which should have access to the Module
      */
@@ -137,6 +146,7 @@ export class Module extends pulumi.CustomResource {
             resourceInputs["branch"] = state ? state.branch : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enableLocalPreview"] = state ? state.enableLocalPreview : undefined;
+            resourceInputs["gitSparseCheckoutPaths"] = state ? state.gitSparseCheckoutPaths : undefined;
             resourceInputs["githubEnterprise"] = state ? state.githubEnterprise : undefined;
             resourceInputs["gitlab"] = state ? state.gitlab : undefined;
             resourceInputs["labels"] = state ? state.labels : undefined;
@@ -147,6 +157,7 @@ export class Module extends pulumi.CustomResource {
             resourceInputs["public"] = state ? state.public : undefined;
             resourceInputs["rawGit"] = state ? state.rawGit : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["runnerImage"] = state ? state.runnerImage : undefined;
             resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
             resourceInputs["spaceId"] = state ? state.spaceId : undefined;
             resourceInputs["terraformProvider"] = state ? state.terraformProvider : undefined;
@@ -167,6 +178,7 @@ export class Module extends pulumi.CustomResource {
             resourceInputs["branch"] = args ? args.branch : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enableLocalPreview"] = args ? args.enableLocalPreview : undefined;
+            resourceInputs["gitSparseCheckoutPaths"] = args ? args.gitSparseCheckoutPaths : undefined;
             resourceInputs["githubEnterprise"] = args ? args.githubEnterprise : undefined;
             resourceInputs["gitlab"] = args ? args.gitlab : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
@@ -177,6 +189,7 @@ export class Module extends pulumi.CustomResource {
             resourceInputs["public"] = args ? args.public : undefined;
             resourceInputs["rawGit"] = args ? args.rawGit : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["runnerImage"] = args ? args.runnerImage : undefined;
             resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
             resourceInputs["spaceId"] = args ? args.spaceId : undefined;
             resourceInputs["terraformProvider"] = args ? args.terraformProvider : undefined;
@@ -226,6 +239,11 @@ export interface ModuleState {
      */
     enableLocalPreview?: pulumi.Input<boolean>;
     /**
+     * Git sparse checkout paths is an optional list of paths to use for sparse checkout. If not set, the entire repository
+     * will be checked out.
+     */
+    gitSparseCheckoutPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * GitHub Enterprise (self-hosted) VCS settings
      */
     githubEnterprise?: pulumi.Input<inputs.ModuleGithubEnterprise>;
@@ -256,6 +274,10 @@ export interface ModuleState {
      * Name of the repository, without the owner part
      */
     repository?: pulumi.Input<string>;
+    /**
+     * Name of the Docker image used to process Runs
+     */
+    runnerImage?: pulumi.Input<string>;
     /**
      * List of the accounts (subdomains) which should have access to the Module
      */
@@ -309,6 +331,11 @@ export interface ModuleArgs {
      */
     enableLocalPreview?: pulumi.Input<boolean>;
     /**
+     * Git sparse checkout paths is an optional list of paths to use for sparse checkout. If not set, the entire repository
+     * will be checked out.
+     */
+    gitSparseCheckoutPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * GitHub Enterprise (self-hosted) VCS settings
      */
     githubEnterprise?: pulumi.Input<inputs.ModuleGithubEnterprise>;
@@ -339,6 +366,10 @@ export interface ModuleArgs {
      * Name of the repository, without the owner part
      */
     repository: pulumi.Input<string>;
+    /**
+     * Name of the Docker image used to process Runs
+     */
+    runnerImage?: pulumi.Input<string>;
     /**
      * List of the accounts (subdomains) which should have access to the Module
      */

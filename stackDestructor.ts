@@ -38,6 +38,11 @@ export class StackDestructor extends pulumi.CustomResource {
      * If set to true, destruction won't delete the stack
      */
     public readonly deactivated!: pulumi.Output<boolean | undefined>;
+    /**
+     * If set to true, destruction will also discard all runs on the stack that are eligible for discarding (e.g. not in
+     * progress runs)
+     */
+    public readonly discardRuns!: pulumi.Output<boolean | undefined>;
     public readonly stackDestructorId!: pulumi.Output<string>;
     /**
      * ID of the stack to delete and destroy on destruction
@@ -59,6 +64,7 @@ export class StackDestructor extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as StackDestructorState | undefined;
             resourceInputs["deactivated"] = state ? state.deactivated : undefined;
+            resourceInputs["discardRuns"] = state ? state.discardRuns : undefined;
             resourceInputs["stackDestructorId"] = state ? state.stackDestructorId : undefined;
             resourceInputs["stackId"] = state ? state.stackId : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -68,6 +74,7 @@ export class StackDestructor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'stackId'");
             }
             resourceInputs["deactivated"] = args ? args.deactivated : undefined;
+            resourceInputs["discardRuns"] = args ? args.discardRuns : undefined;
             resourceInputs["stackDestructorId"] = args ? args.stackDestructorId : undefined;
             resourceInputs["stackId"] = args ? args.stackId : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -85,6 +92,11 @@ export interface StackDestructorState {
      * If set to true, destruction won't delete the stack
      */
     deactivated?: pulumi.Input<boolean>;
+    /**
+     * If set to true, destruction will also discard all runs on the stack that are eligible for discarding (e.g. not in
+     * progress runs)
+     */
+    discardRuns?: pulumi.Input<boolean>;
     stackDestructorId?: pulumi.Input<string>;
     /**
      * ID of the stack to delete and destroy on destruction
@@ -101,6 +113,11 @@ export interface StackDestructorArgs {
      * If set to true, destruction won't delete the stack
      */
     deactivated?: pulumi.Input<boolean>;
+    /**
+     * If set to true, destruction will also discard all runs on the stack that are eligible for discarding (e.g. not in
+     * progress runs)
+     */
+    discardRuns?: pulumi.Input<boolean>;
     stackDestructorId?: pulumi.Input<string>;
     /**
      * ID of the stack to delete and destroy on destruction

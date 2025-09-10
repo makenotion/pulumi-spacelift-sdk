@@ -141,6 +141,11 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly enableWellKnownSecretMasking!: pulumi.Output<boolean | undefined>;
     /**
+     * Git sparse checkout paths is an optional list of paths to use for sparse checkout. If not set, the entire repository
+     * will be checked out.
+     */
+    public readonly gitSparseCheckoutPaths!: pulumi.Output<string[] | undefined>;
+    /**
      * Indicates whether GitHub users can deploy from the Checks API. Defaults to `true`. This is called allow run promotion in
      * the UI.
      */
@@ -269,6 +274,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["enableLocalPreview"] = state ? state.enableLocalPreview : undefined;
             resourceInputs["enableSensitiveOutputsUpload"] = state ? state.enableSensitiveOutputsUpload : undefined;
             resourceInputs["enableWellKnownSecretMasking"] = state ? state.enableWellKnownSecretMasking : undefined;
+            resourceInputs["gitSparseCheckoutPaths"] = state ? state.gitSparseCheckoutPaths : undefined;
             resourceInputs["githubActionDeploy"] = state ? state.githubActionDeploy : undefined;
             resourceInputs["githubEnterprise"] = state ? state.githubEnterprise : undefined;
             resourceInputs["gitlab"] = state ? state.gitlab : undefined;
@@ -328,6 +334,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["enableLocalPreview"] = args ? args.enableLocalPreview : undefined;
             resourceInputs["enableSensitiveOutputsUpload"] = args ? args.enableSensitiveOutputsUpload : undefined;
             resourceInputs["enableWellKnownSecretMasking"] = args ? args.enableWellKnownSecretMasking : undefined;
+            resourceInputs["gitSparseCheckoutPaths"] = args ? args.gitSparseCheckoutPaths : undefined;
             resourceInputs["githubActionDeploy"] = args ? args.githubActionDeploy : undefined;
             resourceInputs["githubEnterprise"] = args ? args.githubEnterprise : undefined;
             resourceInputs["gitlab"] = args ? args.gitlab : undefined;
@@ -473,6 +480,11 @@ export interface StackState {
      * Indicates whether well-known secret masking is enabled.
      */
     enableWellKnownSecretMasking?: pulumi.Input<boolean>;
+    /**
+     * Git sparse checkout paths is an optional list of paths to use for sparse checkout. If not set, the entire repository
+     * will be checked out.
+     */
+    gitSparseCheckoutPaths?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Indicates whether GitHub users can deploy from the Checks API. Defaults to `true`. This is called allow run promotion in
      * the UI.
@@ -670,6 +682,11 @@ export interface StackArgs {
      * Indicates whether well-known secret masking is enabled.
      */
     enableWellKnownSecretMasking?: pulumi.Input<boolean>;
+    /**
+     * Git sparse checkout paths is an optional list of paths to use for sparse checkout. If not set, the entire repository
+     * will be checked out.
+     */
+    gitSparseCheckoutPaths?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Indicates whether GitHub users can deploy from the Checks API. Defaults to `true`. This is called allow run promotion in
      * the UI.

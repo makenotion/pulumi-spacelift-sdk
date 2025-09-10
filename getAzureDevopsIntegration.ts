@@ -30,6 +30,7 @@ export interface GetAzureDevopsIntegrationResult {
     readonly name: string;
     readonly organizationUrl: string;
     readonly spaceId: string;
+    readonly useGitCheckout: boolean;
     readonly vcsChecks: string;
     readonly webhookPassword: string;
     readonly webhookUrl: string;

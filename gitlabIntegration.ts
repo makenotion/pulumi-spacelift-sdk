@@ -62,6 +62,11 @@ export class GitlabIntegration extends pulumi.CustomResource {
      */
     public readonly spaceId!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether the integration should use git checkout. If false source code will be downloaded using the VCS API.
+     * Defaults to true.
+     */
+    public readonly useGitCheckout!: pulumi.Output<boolean>;
+    /**
      * User facing host URL.
      */
     public readonly userFacingHost!: pulumi.Output<string>;
@@ -98,6 +103,7 @@ export class GitlabIntegration extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateToken"] = state ? state.privateToken : undefined;
             resourceInputs["spaceId"] = state ? state.spaceId : undefined;
+            resourceInputs["useGitCheckout"] = state ? state.useGitCheckout : undefined;
             resourceInputs["userFacingHost"] = state ? state.userFacingHost : undefined;
             resourceInputs["vcsChecks"] = state ? state.vcsChecks : undefined;
             resourceInputs["webhookSecret"] = state ? state.webhookSecret : undefined;
@@ -120,6 +126,7 @@ export class GitlabIntegration extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateToken"] = args?.privateToken ? pulumi.secret(args.privateToken) : undefined;
             resourceInputs["spaceId"] = args ? args.spaceId : undefined;
+            resourceInputs["useGitCheckout"] = args ? args.useGitCheckout : undefined;
             resourceInputs["userFacingHost"] = args ? args.userFacingHost : undefined;
             resourceInputs["vcsChecks"] = args ? args.vcsChecks : undefined;
             resourceInputs["webhookSecret"] = undefined /*out*/;
@@ -165,6 +172,11 @@ export interface GitlabIntegrationState {
      * ID (slug) of the space the integration is in; Default: `root`
      */
     spaceId?: pulumi.Input<string>;
+    /**
+     * Indicates whether the integration should use git checkout. If false source code will be downloaded using the VCS API.
+     * Defaults to true.
+     */
+    useGitCheckout?: pulumi.Input<boolean>;
     /**
      * User facing host URL.
      */
@@ -216,6 +228,11 @@ export interface GitlabIntegrationArgs {
      * ID (slug) of the space the integration is in; Default: `root`
      */
     spaceId?: pulumi.Input<string>;
+    /**
+     * Indicates whether the integration should use git checkout. If false source code will be downloaded using the VCS API.
+     * Defaults to true.
+     */
+    useGitCheckout?: pulumi.Input<boolean>;
     /**
      * User facing host URL.
      */

@@ -39,7 +39,10 @@ export class User extends pulumi.CustomResource {
      * creating a new user. This property is optional when importing an existing user.
      */
     public readonly invitationEmail!: pulumi.Output<string | undefined>;
-    public readonly policies!: pulumi.Output<outputs.UserPolicy[]>;
+    /**
+     * @deprecated Deprecated
+     */
+    public readonly policies!: pulumi.Output<outputs.UserPolicy[] | undefined>;
     public readonly userId!: pulumi.Output<string>;
     /**
      * Username of the user
@@ -65,9 +68,6 @@ export class User extends pulumi.CustomResource {
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.policies === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policies'");
-            }
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
@@ -90,6 +90,9 @@ export interface UserState {
      * creating a new user. This property is optional when importing an existing user.
      */
     invitationEmail?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated
+     */
     policies?: pulumi.Input<pulumi.Input<inputs.UserPolicy>[]>;
     userId?: pulumi.Input<string>;
     /**
@@ -107,7 +110,10 @@ export interface UserArgs {
      * creating a new user. This property is optional when importing an existing user.
      */
     invitationEmail?: pulumi.Input<string>;
-    policies: pulumi.Input<pulumi.Input<inputs.UserPolicy>[]>;
+    /**
+     * @deprecated Deprecated
+     */
+    policies?: pulumi.Input<pulumi.Input<inputs.UserPolicy>[]>;
     userId?: pulumi.Input<string>;
     /**
      * Username of the user
