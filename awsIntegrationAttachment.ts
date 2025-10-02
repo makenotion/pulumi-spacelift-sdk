@@ -19,7 +19,7 @@ export class AwsIntegrationAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/awsIntegrationAttachment:AwsIntegrationAttachment';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/awsIntegrationAttachment:AwsIntegrationAttachment';
 
     /**
      * Returns true if the given object is an instance of AwsIntegrationAttachment.  This is designed to work even
@@ -35,28 +35,28 @@ export class AwsIntegrationAttachment extends pulumi.CustomResource {
     /**
      * Internal ID of the attachment entity
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
-    public readonly awsIntegrationAttachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentId: pulumi.Output<string>;
+    declare public readonly awsIntegrationAttachmentId: pulumi.Output<string>;
     /**
      * ID of the integration to attach
      */
-    public readonly integrationId!: pulumi.Output<string>;
+    declare public readonly integrationId: pulumi.Output<string>;
     /**
      * ID of the module to attach the integration to
      */
-    public readonly moduleId!: pulumi.Output<string | undefined>;
+    declare public readonly moduleId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this attachment is used for read operations. Defaults to `true`.
      */
-    public readonly read!: pulumi.Output<boolean | undefined>;
+    declare public readonly read: pulumi.Output<boolean | undefined>;
     /**
      * ID of the stack to attach the integration to
      */
-    public readonly stackId!: pulumi.Output<string | undefined>;
+    declare public readonly stackId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this attachment is used for write operations. Defaults to `true`.
      */
-    public readonly write!: pulumi.Output<boolean | undefined>;
+    declare public readonly write: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AwsIntegrationAttachment resource with the given unique name, arguments, and options.
@@ -71,24 +71,24 @@ export class AwsIntegrationAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AwsIntegrationAttachmentState | undefined;
-            resourceInputs["attachmentId"] = state ? state.attachmentId : undefined;
-            resourceInputs["awsIntegrationAttachmentId"] = state ? state.awsIntegrationAttachmentId : undefined;
-            resourceInputs["integrationId"] = state ? state.integrationId : undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["read"] = state ? state.read : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["write"] = state ? state.write : undefined;
+            resourceInputs["attachmentId"] = state?.attachmentId;
+            resourceInputs["awsIntegrationAttachmentId"] = state?.awsIntegrationAttachmentId;
+            resourceInputs["integrationId"] = state?.integrationId;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["read"] = state?.read;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["write"] = state?.write;
         } else {
             const args = argsOrState as AwsIntegrationAttachmentArgs | undefined;
-            if ((!args || args.integrationId === undefined) && !opts.urn) {
+            if (args?.integrationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationId'");
             }
-            resourceInputs["awsIntegrationAttachmentId"] = args ? args.awsIntegrationAttachmentId : undefined;
-            resourceInputs["integrationId"] = args ? args.integrationId : undefined;
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
-            resourceInputs["read"] = args ? args.read : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["write"] = args ? args.write : undefined;
+            resourceInputs["awsIntegrationAttachmentId"] = args?.awsIntegrationAttachmentId;
+            resourceInputs["integrationId"] = args?.integrationId;
+            resourceInputs["moduleId"] = args?.moduleId;
+            resourceInputs["read"] = args?.read;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["write"] = args?.write;
             resourceInputs["attachmentId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

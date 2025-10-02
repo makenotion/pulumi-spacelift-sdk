@@ -492,147 +492,147 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "spacelift:index/auditTrailWebhook:AuditTrailWebhook":
+            case "spacelift-terraform-provider:index/auditTrailWebhook:AuditTrailWebhook":
                 return new AuditTrailWebhook(name, <any>undefined, { urn })
-            case "spacelift:index/awsIntegration:AwsIntegration":
+            case "spacelift-terraform-provider:index/awsIntegration:AwsIntegration":
                 return new AwsIntegration(name, <any>undefined, { urn })
-            case "spacelift:index/awsIntegrationAttachment:AwsIntegrationAttachment":
+            case "spacelift-terraform-provider:index/awsIntegrationAttachment:AwsIntegrationAttachment":
                 return new AwsIntegrationAttachment(name, <any>undefined, { urn })
-            case "spacelift:index/awsRole:AwsRole":
+            case "spacelift-terraform-provider:index/awsRole:AwsRole":
                 return new AwsRole(name, <any>undefined, { urn })
-            case "spacelift:index/azureIntegration:AzureIntegration":
+            case "spacelift-terraform-provider:index/azureIntegration:AzureIntegration":
                 return new AzureIntegration(name, <any>undefined, { urn })
-            case "spacelift:index/azureIntegrationAttachment:AzureIntegrationAttachment":
+            case "spacelift-terraform-provider:index/azureIntegrationAttachment:AzureIntegrationAttachment":
                 return new AzureIntegrationAttachment(name, <any>undefined, { urn })
-            case "spacelift:index/bitbucketDatacenterIntegration:BitbucketDatacenterIntegration":
+            case "spacelift-terraform-provider:index/bitbucketDatacenterIntegration:BitbucketDatacenterIntegration":
                 return new BitbucketDatacenterIntegration(name, <any>undefined, { urn })
-            case "spacelift:index/blueprint:Blueprint":
+            case "spacelift-terraform-provider:index/blueprint:Blueprint":
                 return new Blueprint(name, <any>undefined, { urn })
-            case "spacelift:index/context:Context":
+            case "spacelift-terraform-provider:index/context:Context":
                 return new Context(name, <any>undefined, { urn })
-            case "spacelift:index/contextAttachment:ContextAttachment":
+            case "spacelift-terraform-provider:index/contextAttachment:ContextAttachment":
                 return new ContextAttachment(name, <any>undefined, { urn })
-            case "spacelift:index/driftDetection:DriftDetection":
+            case "spacelift-terraform-provider:index/driftDetection:DriftDetection":
                 return new DriftDetection(name, <any>undefined, { urn })
-            case "spacelift:index/environmentVariable:EnvironmentVariable":
+            case "spacelift-terraform-provider:index/environmentVariable:EnvironmentVariable":
                 return new EnvironmentVariable(name, <any>undefined, { urn })
-            case "spacelift:index/gcpServiceAccount:GcpServiceAccount":
+            case "spacelift-terraform-provider:index/gcpServiceAccount:GcpServiceAccount":
                 return new GcpServiceAccount(name, <any>undefined, { urn })
-            case "spacelift:index/gitlabIntegration:GitlabIntegration":
+            case "spacelift-terraform-provider:index/gitlabIntegration:GitlabIntegration":
                 return new GitlabIntegration(name, <any>undefined, { urn })
-            case "spacelift:index/idpGroupMapping:IdpGroupMapping":
+            case "spacelift-terraform-provider:index/idpGroupMapping:IdpGroupMapping":
                 return new IdpGroupMapping(name, <any>undefined, { urn })
-            case "spacelift:index/module:Module":
+            case "spacelift-terraform-provider:index/module:Module":
                 return new Module(name, <any>undefined, { urn })
-            case "spacelift:index/mountedFile:MountedFile":
+            case "spacelift-terraform-provider:index/mountedFile:MountedFile":
                 return new MountedFile(name, <any>undefined, { urn })
-            case "spacelift:index/namedWebhook:NamedWebhook":
+            case "spacelift-terraform-provider:index/namedWebhook:NamedWebhook":
                 return new NamedWebhook(name, <any>undefined, { urn })
-            case "spacelift:index/namedWebhookSecretHeader:NamedWebhookSecretHeader":
+            case "spacelift-terraform-provider:index/namedWebhookSecretHeader:NamedWebhookSecretHeader":
                 return new NamedWebhookSecretHeader(name, <any>undefined, { urn })
-            case "spacelift:index/policy:Policy":
+            case "spacelift-terraform-provider:index/policy:Policy":
                 return new Policy(name, <any>undefined, { urn })
-            case "spacelift:index/policyAttachment:PolicyAttachment":
+            case "spacelift-terraform-provider:index/policyAttachment:PolicyAttachment":
                 return new PolicyAttachment(name, <any>undefined, { urn })
-            case "spacelift:index/role:Role":
+            case "spacelift-terraform-provider:index/role:Role":
                 return new Role(name, <any>undefined, { urn })
-            case "spacelift:index/roleAttachment:RoleAttachment":
+            case "spacelift-terraform-provider:index/roleAttachment:RoleAttachment":
                 return new RoleAttachment(name, <any>undefined, { urn })
-            case "spacelift:index/run:Run":
+            case "spacelift-terraform-provider:index/run:Run":
                 return new Run(name, <any>undefined, { urn })
-            case "spacelift:index/savedFilter:SavedFilter":
+            case "spacelift-terraform-provider:index/savedFilter:SavedFilter":
                 return new SavedFilter(name, <any>undefined, { urn })
-            case "spacelift:index/scheduledDeleteStack:ScheduledDeleteStack":
+            case "spacelift-terraform-provider:index/scheduledDeleteStack:ScheduledDeleteStack":
                 return new ScheduledDeleteStack(name, <any>undefined, { urn })
-            case "spacelift:index/scheduledRun:ScheduledRun":
+            case "spacelift-terraform-provider:index/scheduledRun:ScheduledRun":
                 return new ScheduledRun(name, <any>undefined, { urn })
-            case "spacelift:index/scheduledTask:ScheduledTask":
+            case "spacelift-terraform-provider:index/scheduledTask:ScheduledTask":
                 return new ScheduledTask(name, <any>undefined, { urn })
-            case "spacelift:index/securityEmail:SecurityEmail":
+            case "spacelift-terraform-provider:index/securityEmail:SecurityEmail":
                 return new SecurityEmail(name, <any>undefined, { urn })
-            case "spacelift:index/space:Space":
+            case "spacelift-terraform-provider:index/space:Space":
                 return new Space(name, <any>undefined, { urn })
-            case "spacelift:index/stack:Stack":
+            case "spacelift-terraform-provider:index/stack:Stack":
                 return new Stack(name, <any>undefined, { urn })
-            case "spacelift:index/stackActivator:StackActivator":
+            case "spacelift-terraform-provider:index/stackActivator:StackActivator":
                 return new StackActivator(name, <any>undefined, { urn })
-            case "spacelift:index/stackAwsRole:StackAwsRole":
+            case "spacelift-terraform-provider:index/stackAwsRole:StackAwsRole":
                 return new StackAwsRole(name, <any>undefined, { urn })
-            case "spacelift:index/stackDependency:StackDependency":
+            case "spacelift-terraform-provider:index/stackDependency:StackDependency":
                 return new StackDependency(name, <any>undefined, { urn })
-            case "spacelift:index/stackDependencyReference:StackDependencyReference":
+            case "spacelift-terraform-provider:index/stackDependencyReference:StackDependencyReference":
                 return new StackDependencyReference(name, <any>undefined, { urn })
-            case "spacelift:index/stackDestructor:StackDestructor":
+            case "spacelift-terraform-provider:index/stackDestructor:StackDestructor":
                 return new StackDestructor(name, <any>undefined, { urn })
-            case "spacelift:index/stackGcpServiceAccount:StackGcpServiceAccount":
+            case "spacelift-terraform-provider:index/stackGcpServiceAccount:StackGcpServiceAccount":
                 return new StackGcpServiceAccount(name, <any>undefined, { urn })
-            case "spacelift:index/task:Task":
+            case "spacelift-terraform-provider:index/task:Task":
                 return new Task(name, <any>undefined, { urn })
-            case "spacelift:index/terraformProvider:TerraformProvider":
+            case "spacelift-terraform-provider:index/terraformProvider:TerraformProvider":
                 return new TerraformProvider(name, <any>undefined, { urn })
-            case "spacelift:index/user:User":
+            case "spacelift-terraform-provider:index/user:User":
                 return new User(name, <any>undefined, { urn })
-            case "spacelift:index/vcsAgentPool:VcsAgentPool":
+            case "spacelift-terraform-provider:index/vcsAgentPool:VcsAgentPool":
                 return new VcsAgentPool(name, <any>undefined, { urn })
-            case "spacelift:index/version:Version":
+            case "spacelift-terraform-provider:index/version:Version":
                 return new Version(name, <any>undefined, { urn })
-            case "spacelift:index/webhook:Webhook":
+            case "spacelift-terraform-provider:index/webhook:Webhook":
                 return new Webhook(name, <any>undefined, { urn })
-            case "spacelift:index/workerPool:WorkerPool":
+            case "spacelift-terraform-provider:index/workerPool:WorkerPool":
                 return new WorkerPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("spacelift", "index/auditTrailWebhook", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/awsIntegration", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/awsIntegrationAttachment", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/awsRole", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/azureIntegration", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/azureIntegrationAttachment", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/bitbucketDatacenterIntegration", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/blueprint", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/context", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/contextAttachment", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/driftDetection", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/environmentVariable", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/gcpServiceAccount", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/gitlabIntegration", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/idpGroupMapping", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/module", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/mountedFile", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/namedWebhook", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/namedWebhookSecretHeader", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/policy", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/policyAttachment", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/role", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/roleAttachment", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/run", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/savedFilter", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/scheduledDeleteStack", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/scheduledRun", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/scheduledTask", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/securityEmail", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/space", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/stack", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/stackActivator", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/stackAwsRole", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/stackDependency", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/stackDependencyReference", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/stackDestructor", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/stackGcpServiceAccount", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/task", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/terraformProvider", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/user", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/vcsAgentPool", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/version", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/webhook", _module)
-pulumi.runtime.registerResourceModule("spacelift", "index/workerPool", _module)
-pulumi.runtime.registerResourcePackage("spacelift", {
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/auditTrailWebhook", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/awsIntegration", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/awsIntegrationAttachment", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/awsRole", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/azureIntegration", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/azureIntegrationAttachment", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/bitbucketDatacenterIntegration", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/blueprint", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/context", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/contextAttachment", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/driftDetection", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/environmentVariable", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/gcpServiceAccount", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/gitlabIntegration", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/idpGroupMapping", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/module", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/mountedFile", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/namedWebhook", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/namedWebhookSecretHeader", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/policy", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/policyAttachment", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/role", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/roleAttachment", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/run", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/savedFilter", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/scheduledDeleteStack", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/scheduledRun", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/scheduledTask", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/securityEmail", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/space", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/stack", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/stackActivator", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/stackAwsRole", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/stackDependency", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/stackDependencyReference", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/stackDestructor", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/stackGcpServiceAccount", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/task", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/terraformProvider", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/user", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/vcsAgentPool", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/version", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/webhook", _module)
+pulumi.runtime.registerResourceModule("spacelift-terraform-provider", "index/workerPool", _module)
+pulumi.runtime.registerResourcePackage("spacelift-terraform-provider", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:spacelift") {
+        if (type !== "pulumi:providers:spacelift-terraform-provider") {
             throw new Error(`unknown provider type ${type}`);
         }
         return new Provider(name, <any>undefined, { urn });

@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getSpaceByPath(args: GetSpaceByPathArgs, opts?: pulumi.InvokeOptions): Promise<GetSpaceByPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getSpaceByPath:getSpaceByPath", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getSpaceByPath:getSpaceByPath", {
         "id": args.id,
         "spacePath": args.spacePath,
     }, opts, utilities.getPackage());
@@ -34,7 +34,7 @@ export interface GetSpaceByPathResult {
 }
 export function getSpaceByPathOutput(args: GetSpaceByPathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpaceByPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getSpaceByPath:getSpaceByPath", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getSpaceByPath:getSpaceByPath", {
         "id": args.id,
         "spacePath": args.spacePath,
     }, opts, utilities.getPackage());

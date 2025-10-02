@@ -21,7 +21,7 @@ export class Task extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/task:Task';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/task:Task';
 
     /**
      * Returns true if the given object is an instance of Task.  This is designed to work even
@@ -37,25 +37,25 @@ export class Task extends pulumi.CustomResource {
     /**
      * Command that will be run.
      */
-    public readonly command!: pulumi.Output<string>;
+    declare public readonly command: pulumi.Output<string>;
     /**
      * Whether to initialize the stack or not. Default: `true`
      */
-    public readonly init!: pulumi.Output<boolean | undefined>;
+    declare public readonly init: pulumi.Output<boolean | undefined>;
     /**
      * Arbitrary map of values that, when changed, will trigger recreation of the resource.
      */
-    public readonly keepers!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly keepers: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ID of the stack for which to run the task
      */
-    public readonly stackId!: pulumi.Output<string>;
-    public readonly taskId!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.TaskTimeouts | undefined>;
+    declare public readonly stackId: pulumi.Output<string>;
+    declare public readonly taskId: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.TaskTimeouts | undefined>;
     /**
      * Wait for the run to finish
      */
-    public readonly wait!: pulumi.Output<outputs.TaskWait | undefined>;
+    declare public readonly wait: pulumi.Output<outputs.TaskWait | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -70,28 +70,28 @@ export class Task extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TaskState | undefined;
-            resourceInputs["command"] = state ? state.command : undefined;
-            resourceInputs["init"] = state ? state.init : undefined;
-            resourceInputs["keepers"] = state ? state.keepers : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["taskId"] = state ? state.taskId : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["wait"] = state ? state.wait : undefined;
+            resourceInputs["command"] = state?.command;
+            resourceInputs["init"] = state?.init;
+            resourceInputs["keepers"] = state?.keepers;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["taskId"] = state?.taskId;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["wait"] = state?.wait;
         } else {
             const args = argsOrState as TaskArgs | undefined;
-            if ((!args || args.command === undefined) && !opts.urn) {
+            if (args?.command === undefined && !opts.urn) {
                 throw new Error("Missing required property 'command'");
             }
-            if ((!args || args.stackId === undefined) && !opts.urn) {
+            if (args?.stackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["command"] = args ? args.command : undefined;
-            resourceInputs["init"] = args ? args.init : undefined;
-            resourceInputs["keepers"] = args ? args.keepers : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["taskId"] = args ? args.taskId : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["wait"] = args ? args.wait : undefined;
+            resourceInputs["command"] = args?.command;
+            resourceInputs["init"] = args?.init;
+            resourceInputs["keepers"] = args?.keepers;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["taskId"] = args?.taskId;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["wait"] = args?.wait;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Task.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

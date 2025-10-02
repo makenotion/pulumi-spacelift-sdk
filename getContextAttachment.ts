@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getContextAttachment(args: GetContextAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetContextAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getContextAttachment:getContextAttachment", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getContextAttachment:getContextAttachment", {
         "contextId": args.contextId,
         "id": args.id,
         "moduleId": args.moduleId,
@@ -36,7 +36,7 @@ export interface GetContextAttachmentResult {
 }
 export function getContextAttachmentOutput(args: GetContextAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContextAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getContextAttachment:getContextAttachment", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getContextAttachment:getContextAttachment", {
         "contextId": args.contextId,
         "id": args.id,
         "moduleId": args.moduleId,

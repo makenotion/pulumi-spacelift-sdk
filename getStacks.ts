@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 export function getStacks(args?: GetStacksArgs, opts?: pulumi.InvokeOptions): Promise<GetStacksResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getStacks:getStacks", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getStacks:getStacks", {
         "administrative": args.administrative,
         "branch": args.branch,
         "commit": args.commit,
@@ -64,7 +64,7 @@ export interface GetStacksResult {
 export function getStacksOutput(args?: GetStacksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStacksResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getStacks:getStacks", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getStacks:getStacks", {
         "administrative": args.administrative,
         "branch": args.branch,
         "commit": args.commit,

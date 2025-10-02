@@ -19,7 +19,7 @@ export class AzureIntegration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/azureIntegration:AzureIntegration';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/azureIntegration:AzureIntegration';
 
     /**
      * Returns true if the given object is an instance of AzureIntegration.  This is designed to work even
@@ -35,41 +35,41 @@ export class AzureIntegration extends pulumi.CustomResource {
     /**
      * Indicates whether admin consent has been performed for the AAD Application.
      */
-    public /*out*/ readonly adminConsentProvided!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly adminConsentProvided: pulumi.Output<boolean>;
     /**
      * The URL to use to provide admin consent to the application in the customer's tenant
      */
-    public /*out*/ readonly adminConsentUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly adminConsentUrl: pulumi.Output<string>;
     /**
      * The applicationId of the Azure AD application used by the integration.
      */
-    public /*out*/ readonly applicationId!: pulumi.Output<string>;
-    public readonly azureIntegrationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationId: pulumi.Output<string>;
+    declare public readonly azureIntegrationId: pulumi.Output<string>;
     /**
      * The default subscription ID to use, if one isn't specified at the stack/module level
      */
-    public readonly defaultSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly defaultSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * The display name for the application in Azure. This is automatically generated when the integration is created, and
      * cannot be changed without deleting and recreating the integration.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * Labels to set on the integration
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The friendly name of the integration
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ID (slug) of the space the integration is in
      */
-    public readonly spaceId!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
     /**
      * The Azure AD tenant ID
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a AzureIntegration resource with the given unique name, arguments, and options.
@@ -84,27 +84,27 @@ export class AzureIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AzureIntegrationState | undefined;
-            resourceInputs["adminConsentProvided"] = state ? state.adminConsentProvided : undefined;
-            resourceInputs["adminConsentUrl"] = state ? state.adminConsentUrl : undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["azureIntegrationId"] = state ? state.azureIntegrationId : undefined;
-            resourceInputs["defaultSubscriptionId"] = state ? state.defaultSubscriptionId : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["adminConsentProvided"] = state?.adminConsentProvided;
+            resourceInputs["adminConsentUrl"] = state?.adminConsentUrl;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["azureIntegrationId"] = state?.azureIntegrationId;
+            resourceInputs["defaultSubscriptionId"] = state?.defaultSubscriptionId;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["spaceId"] = state?.spaceId;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as AzureIntegrationArgs | undefined;
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["azureIntegrationId"] = args ? args.azureIntegrationId : undefined;
-            resourceInputs["defaultSubscriptionId"] = args ? args.defaultSubscriptionId : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureIntegrationId"] = args?.azureIntegrationId;
+            resourceInputs["defaultSubscriptionId"] = args?.defaultSubscriptionId;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["spaceId"] = args?.spaceId;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["adminConsentProvided"] = undefined /*out*/;
             resourceInputs["adminConsentUrl"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;

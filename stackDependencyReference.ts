@@ -19,7 +19,7 @@ export class StackDependencyReference extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/stackDependencyReference:StackDependencyReference';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/stackDependencyReference:StackDependencyReference';
 
     /**
      * Returns true if the given object is an instance of StackDependencyReference.  This is designed to work even
@@ -35,20 +35,20 @@ export class StackDependencyReference extends pulumi.CustomResource {
     /**
      * Name of the input of the stack dependency reference
      */
-    public readonly inputName!: pulumi.Output<string>;
+    declare public readonly inputName: pulumi.Output<string>;
     /**
      * Name of the output of stack to depend on
      */
-    public readonly outputName!: pulumi.Output<string>;
+    declare public readonly outputName: pulumi.Output<string>;
     /**
      * Immutable ID of stack dependency
      */
-    public readonly stackDependencyId!: pulumi.Output<string>;
-    public readonly stackDependencyReferenceId!: pulumi.Output<string>;
+    declare public readonly stackDependencyId: pulumi.Output<string>;
+    declare public readonly stackDependencyReferenceId: pulumi.Output<string>;
     /**
      * Whether the dependents should be triggered even if the value of the reference did not change.
      */
-    public readonly triggerAlways!: pulumi.Output<boolean | undefined>;
+    declare public readonly triggerAlways: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a StackDependencyReference resource with the given unique name, arguments, and options.
@@ -63,27 +63,27 @@ export class StackDependencyReference extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackDependencyReferenceState | undefined;
-            resourceInputs["inputName"] = state ? state.inputName : undefined;
-            resourceInputs["outputName"] = state ? state.outputName : undefined;
-            resourceInputs["stackDependencyId"] = state ? state.stackDependencyId : undefined;
-            resourceInputs["stackDependencyReferenceId"] = state ? state.stackDependencyReferenceId : undefined;
-            resourceInputs["triggerAlways"] = state ? state.triggerAlways : undefined;
+            resourceInputs["inputName"] = state?.inputName;
+            resourceInputs["outputName"] = state?.outputName;
+            resourceInputs["stackDependencyId"] = state?.stackDependencyId;
+            resourceInputs["stackDependencyReferenceId"] = state?.stackDependencyReferenceId;
+            resourceInputs["triggerAlways"] = state?.triggerAlways;
         } else {
             const args = argsOrState as StackDependencyReferenceArgs | undefined;
-            if ((!args || args.inputName === undefined) && !opts.urn) {
+            if (args?.inputName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputName'");
             }
-            if ((!args || args.outputName === undefined) && !opts.urn) {
+            if (args?.outputName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputName'");
             }
-            if ((!args || args.stackDependencyId === undefined) && !opts.urn) {
+            if (args?.stackDependencyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackDependencyId'");
             }
-            resourceInputs["inputName"] = args ? args.inputName : undefined;
-            resourceInputs["outputName"] = args ? args.outputName : undefined;
-            resourceInputs["stackDependencyId"] = args ? args.stackDependencyId : undefined;
-            resourceInputs["stackDependencyReferenceId"] = args ? args.stackDependencyReferenceId : undefined;
-            resourceInputs["triggerAlways"] = args ? args.triggerAlways : undefined;
+            resourceInputs["inputName"] = args?.inputName;
+            resourceInputs["outputName"] = args?.outputName;
+            resourceInputs["stackDependencyId"] = args?.stackDependencyId;
+            resourceInputs["stackDependencyReferenceId"] = args?.stackDependencyReferenceId;
+            resourceInputs["triggerAlways"] = args?.triggerAlways;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StackDependencyReference.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

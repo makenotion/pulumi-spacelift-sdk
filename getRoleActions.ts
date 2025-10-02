@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getRoleActions(args?: GetRoleActionsArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleActionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getRoleActions:getRoleActions", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getRoleActions:getRoleActions", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -29,7 +29,7 @@ export interface GetRoleActionsResult {
 export function getRoleActionsOutput(args?: GetRoleActionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleActionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getRoleActions:getRoleActions", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getRoleActions:getRoleActions", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

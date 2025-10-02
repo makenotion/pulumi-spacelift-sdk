@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getWebhook:getWebhook", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getWebhook:getWebhook", {
         "id": args.id,
         "moduleId": args.moduleId,
         "stackId": args.stackId,
@@ -37,7 +37,7 @@ export interface GetWebhookResult {
 }
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebhookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getWebhook:getWebhook", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getWebhook:getWebhook", {
         "id": args.id,
         "moduleId": args.moduleId,
         "stackId": args.stackId,

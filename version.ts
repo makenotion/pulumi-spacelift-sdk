@@ -19,7 +19,7 @@ export class Version extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/version:Version';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/version:Version';
 
     /**
      * Returns true if the given object is an instance of Version.  This is designed to work even
@@ -35,19 +35,19 @@ export class Version extends pulumi.CustomResource {
     /**
      * The commit SHA for which to trigger a version.
      */
-    public readonly commitSha!: pulumi.Output<string | undefined>;
+    declare public readonly commitSha: pulumi.Output<string | undefined>;
     /**
      * Arbitrary map of values that, when changed, will trigger recreation of the resource.
      */
-    public readonly keepers!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly keepers: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ID of the module on which the version creation is to be triggered.
      */
-    public readonly moduleId!: pulumi.Output<string>;
+    declare public readonly moduleId: pulumi.Output<string>;
     /**
      * A semantic version number to set for the triggered version, example: 0.11.2
      */
-    public readonly versionNumber!: pulumi.Output<string | undefined>;
+    declare public readonly versionNumber: pulumi.Output<string | undefined>;
 
     /**
      * Create a Version resource with the given unique name, arguments, and options.
@@ -62,19 +62,19 @@ export class Version extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VersionState | undefined;
-            resourceInputs["commitSha"] = state ? state.commitSha : undefined;
-            resourceInputs["keepers"] = state ? state.keepers : undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
+            resourceInputs["commitSha"] = state?.commitSha;
+            resourceInputs["keepers"] = state?.keepers;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["versionNumber"] = state?.versionNumber;
         } else {
             const args = argsOrState as VersionArgs | undefined;
-            if ((!args || args.moduleId === undefined) && !opts.urn) {
+            if (args?.moduleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'moduleId'");
             }
-            resourceInputs["commitSha"] = args ? args.commitSha : undefined;
-            resourceInputs["keepers"] = args ? args.keepers : undefined;
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
-            resourceInputs["versionNumber"] = args ? args.versionNumber : undefined;
+            resourceInputs["commitSha"] = args?.commitSha;
+            resourceInputs["keepers"] = args?.keepers;
+            resourceInputs["moduleId"] = args?.moduleId;
+            resourceInputs["versionNumber"] = args?.versionNumber;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Version.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

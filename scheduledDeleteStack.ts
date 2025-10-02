@@ -19,7 +19,7 @@ export class ScheduledDeleteStack extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/scheduledDeleteStack:ScheduledDeleteStack';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/scheduledDeleteStack:ScheduledDeleteStack';
 
     /**
      * Returns true if the given object is an instance of ScheduledDeleteStack.  This is designed to work even
@@ -35,20 +35,20 @@ export class ScheduledDeleteStack extends pulumi.CustomResource {
     /**
      * Timestamp (unix timestamp) at which time the scheduling should happen.
      */
-    public readonly at!: pulumi.Output<number>;
+    declare public readonly at: pulumi.Output<number>;
     /**
      * Indicates whether the resources of the stack should be deleted.
      */
-    public readonly deleteResources!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteResources: pulumi.Output<boolean | undefined>;
     /**
      * ID of the schedule
      */
-    public readonly scheduleId!: pulumi.Output<string>;
-    public readonly scheduledDeleteStackId!: pulumi.Output<string>;
+    declare public readonly scheduleId: pulumi.Output<string>;
+    declare public readonly scheduledDeleteStackId: pulumi.Output<string>;
     /**
      * ID of the stack for which to set up scheduling
      */
-    public readonly stackId!: pulumi.Output<string>;
+    declare public readonly stackId: pulumi.Output<string>;
 
     /**
      * Create a ScheduledDeleteStack resource with the given unique name, arguments, and options.
@@ -63,24 +63,24 @@ export class ScheduledDeleteStack extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledDeleteStackState | undefined;
-            resourceInputs["at"] = state ? state.at : undefined;
-            resourceInputs["deleteResources"] = state ? state.deleteResources : undefined;
-            resourceInputs["scheduleId"] = state ? state.scheduleId : undefined;
-            resourceInputs["scheduledDeleteStackId"] = state ? state.scheduledDeleteStackId : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["at"] = state?.at;
+            resourceInputs["deleteResources"] = state?.deleteResources;
+            resourceInputs["scheduleId"] = state?.scheduleId;
+            resourceInputs["scheduledDeleteStackId"] = state?.scheduledDeleteStackId;
+            resourceInputs["stackId"] = state?.stackId;
         } else {
             const args = argsOrState as ScheduledDeleteStackArgs | undefined;
-            if ((!args || args.at === undefined) && !opts.urn) {
+            if (args?.at === undefined && !opts.urn) {
                 throw new Error("Missing required property 'at'");
             }
-            if ((!args || args.stackId === undefined) && !opts.urn) {
+            if (args?.stackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["at"] = args ? args.at : undefined;
-            resourceInputs["deleteResources"] = args ? args.deleteResources : undefined;
-            resourceInputs["scheduleId"] = args ? args.scheduleId : undefined;
-            resourceInputs["scheduledDeleteStackId"] = args ? args.scheduledDeleteStackId : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["at"] = args?.at;
+            resourceInputs["deleteResources"] = args?.deleteResources;
+            resourceInputs["scheduleId"] = args?.scheduleId;
+            resourceInputs["scheduledDeleteStackId"] = args?.scheduledDeleteStackId;
+            resourceInputs["stackId"] = args?.stackId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScheduledDeleteStack.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 export function getPolicies(args?: GetPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetPoliciesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getPolicies:getPolicies", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getPolicies:getPolicies", {
         "id": args.id,
         "labels": args.labels,
         "type": args.type,
@@ -37,7 +37,7 @@ export interface GetPoliciesResult {
 export function getPoliciesOutput(args?: GetPoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoliciesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getPolicies:getPolicies", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getPolicies:getPolicies", {
         "id": args.id,
         "labels": args.labels,
         "type": args.type,

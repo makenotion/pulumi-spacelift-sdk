@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getGitlabWebhookEndpoint(args?: GetGitlabWebhookEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetGitlabWebhookEndpointResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getGitlabWebhookEndpoint:getGitlabWebhookEndpoint", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getGitlabWebhookEndpoint:getGitlabWebhookEndpoint", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -29,7 +29,7 @@ export interface GetGitlabWebhookEndpointResult {
 export function getGitlabWebhookEndpointOutput(args?: GetGitlabWebhookEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGitlabWebhookEndpointResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getGitlabWebhookEndpoint:getGitlabWebhookEndpoint", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getGitlabWebhookEndpoint:getGitlabWebhookEndpoint", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

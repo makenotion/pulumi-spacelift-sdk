@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getAccount:getAccount", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getAccount:getAccount", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -31,7 +31,7 @@ export interface GetAccountResult {
 export function getAccountOutput(args?: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getAccount:getAccount", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getAccount:getAccount", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

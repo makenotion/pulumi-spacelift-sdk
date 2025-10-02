@@ -19,7 +19,7 @@ export class ContextAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/contextAttachment:ContextAttachment';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/contextAttachment:ContextAttachment';
 
     /**
      * Returns true if the given object is an instance of ContextAttachment.  This is designed to work even
@@ -32,25 +32,25 @@ export class ContextAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContextAttachment.__pulumiType;
     }
 
-    public readonly contextAttachmentId!: pulumi.Output<string>;
+    declare public readonly contextAttachmentId: pulumi.Output<string>;
     /**
      * ID of the context to attach
      */
-    public readonly contextId!: pulumi.Output<string>;
+    declare public readonly contextId: pulumi.Output<string>;
     /**
      * ID of the module to attach the context to
      */
-    public readonly moduleId!: pulumi.Output<string | undefined>;
+    declare public readonly moduleId: pulumi.Output<string | undefined>;
     /**
      * Priority of the context attachment. All the contexts attached to a stack are sorted by priority (lowest first), though
      * values don't need to be unique. This ordering establishes precedence rules between contexts should there be a conflict
      * and multiple contexts define the same value. Defaults to `0`.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * ID of the stack to attach the context to
      */
-    public readonly stackId!: pulumi.Output<string | undefined>;
+    declare public readonly stackId: pulumi.Output<string | undefined>;
 
     /**
      * Create a ContextAttachment resource with the given unique name, arguments, and options.
@@ -65,21 +65,21 @@ export class ContextAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContextAttachmentState | undefined;
-            resourceInputs["contextAttachmentId"] = state ? state.contextAttachmentId : undefined;
-            resourceInputs["contextId"] = state ? state.contextId : undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["contextAttachmentId"] = state?.contextAttachmentId;
+            resourceInputs["contextId"] = state?.contextId;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["stackId"] = state?.stackId;
         } else {
             const args = argsOrState as ContextAttachmentArgs | undefined;
-            if ((!args || args.contextId === undefined) && !opts.urn) {
+            if (args?.contextId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contextId'");
             }
-            resourceInputs["contextAttachmentId"] = args ? args.contextAttachmentId : undefined;
-            resourceInputs["contextId"] = args ? args.contextId : undefined;
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["contextAttachmentId"] = args?.contextAttachmentId;
+            resourceInputs["contextId"] = args?.contextId;
+            resourceInputs["moduleId"] = args?.moduleId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["stackId"] = args?.stackId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ContextAttachment.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

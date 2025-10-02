@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getToolVersions(args: GetToolVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetToolVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getToolVersions:getToolVersions", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getToolVersions:getToolVersions", {
         "id": args.id,
         "tool": args.tool,
     }, opts, utilities.getPackage());
@@ -30,7 +30,7 @@ export interface GetToolVersionsResult {
 }
 export function getToolVersionsOutput(args: GetToolVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetToolVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getToolVersions:getToolVersions", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getToolVersions:getToolVersions", {
         "id": args.id,
         "tool": args.tool,
     }, opts, utilities.getPackage());

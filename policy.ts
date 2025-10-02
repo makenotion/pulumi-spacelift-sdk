@@ -19,7 +19,7 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/policy:Policy';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/policy:Policy';
 
     /**
      * Returns true if the given object is an instance of Policy.  This is designed to work even
@@ -35,27 +35,27 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Body of the policy
      */
-    public readonly body!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string>;
     /**
      * Description of the policy
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * Name of the policy - should be unique in one account
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * ID (slug) of the space the policy is in
      */
-    public readonly spaceId!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
     /**
      * Type of the policy. Possible values are `ACCESS`, `APPROVAL`, `GIT_PUSH`, `INITIALIZATION`, `LOGIN`, `PLAN`, `TASK`,
      * `TRIGGER` and `NOTIFICATION`. Deprecated values are `STACK_ACCESS` (use `ACCESS` instead), `TASK_RUN` (use `TASK`
      * instead), and `TERRAFORM_PLAN` (use `PLAN` instead).
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -70,28 +70,28 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["spaceId"] = state?.spaceId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.body === undefined) && !opts.urn) {
+            if (args?.body === undefined && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["spaceId"] = args?.spaceId;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Policy.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

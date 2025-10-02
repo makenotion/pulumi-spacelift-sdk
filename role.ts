@@ -19,7 +19,7 @@ export class Role extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/role:Role';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/role:Role';
 
     /**
      * Returns true if the given object is an instance of Role.  This is designed to work even
@@ -34,21 +34,21 @@ export class Role extends pulumi.CustomResource {
 
     /**
      * List of actions (permissions) associated with the role. For example: `SPACE_READ`, `SPACE_WRITE`, `SPACE_ADMIN`,
-     * `RUN_TRIGGER`. All possible actions can be listed using the `spacelift.getRoleActions` data source.
+     * `RUN_TRIGGER`. All possible actions can be listed using the `spacelift-terraform-provider.getRoleActions` data source.
      */
-    public readonly actions!: pulumi.Output<string[]>;
+    declare public readonly actions: pulumi.Output<string[]>;
     /**
      * Human-readable, free-form description of the role
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Human-readable, free-form name of the role
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * URL-friendly unique identifier of the role, generated from the name. Example: `space-admin`.
      */
-    public /*out*/ readonly slug!: pulumi.Output<string>;
+    declare public /*out*/ readonly slug: pulumi.Output<string>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.
@@ -63,18 +63,18 @@ export class Role extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["slug"] = state ? state.slug : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["slug"] = state?.slug;
         } else {
             const args = argsOrState as RoleArgs | undefined;
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
             resourceInputs["slug"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -88,7 +88,7 @@ export class Role extends pulumi.CustomResource {
 export interface RoleState {
     /**
      * List of actions (permissions) associated with the role. For example: `SPACE_READ`, `SPACE_WRITE`, `SPACE_ADMIN`,
-     * `RUN_TRIGGER`. All possible actions can be listed using the `spacelift.getRoleActions` data source.
+     * `RUN_TRIGGER`. All possible actions can be listed using the `spacelift-terraform-provider.getRoleActions` data source.
      */
     actions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -111,7 +111,7 @@ export interface RoleState {
 export interface RoleArgs {
     /**
      * List of actions (permissions) associated with the role. For example: `SPACE_READ`, `SPACE_WRITE`, `SPACE_ADMIN`,
-     * `RUN_TRIGGER`. All possible actions can be listed using the `spacelift.getRoleActions` data source.
+     * `RUN_TRIGGER`. All possible actions can be listed using the `spacelift-terraform-provider.getRoleActions` data source.
      */
     actions: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -19,7 +19,7 @@ export class VcsAgentPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/vcsAgentPool:VcsAgentPool';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/vcsAgentPool:VcsAgentPool';
 
     /**
      * Returns true if the given object is an instance of VcsAgentPool.  This is designed to work even
@@ -35,16 +35,16 @@ export class VcsAgentPool extends pulumi.CustomResource {
     /**
      * VCS agent pool configuration, encoded using base64
      */
-    public /*out*/ readonly config!: pulumi.Output<string>;
+    declare public /*out*/ readonly config: pulumi.Output<string>;
     /**
      * Free-form VCS agent pool description for users
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the VCS agent pool, must be unique within an account
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly vcsAgentPoolId!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly vcsAgentPoolId: pulumi.Output<string>;
 
     /**
      * Create a VcsAgentPool resource with the given unique name, arguments, and options.
@@ -59,15 +59,15 @@ export class VcsAgentPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VcsAgentPoolState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["vcsAgentPoolId"] = state ? state.vcsAgentPoolId : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["vcsAgentPoolId"] = state?.vcsAgentPoolId;
         } else {
             const args = argsOrState as VcsAgentPoolArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["vcsAgentPoolId"] = args ? args.vcsAgentPoolId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["vcsAgentPoolId"] = args?.vcsAgentPoolId;
             resourceInputs["config"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

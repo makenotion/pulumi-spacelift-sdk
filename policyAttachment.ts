@@ -19,7 +19,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/policyAttachment:PolicyAttachment';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/policyAttachment:PolicyAttachment';
 
     /**
      * Returns true if the given object is an instance of PolicyAttachment.  This is designed to work even
@@ -35,16 +35,16 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * ID of the module to attach the policy to
      */
-    public readonly moduleId!: pulumi.Output<string | undefined>;
-    public readonly policyAttachmentId!: pulumi.Output<string>;
+    declare public readonly moduleId: pulumi.Output<string | undefined>;
+    declare public readonly policyAttachmentId: pulumi.Output<string>;
     /**
      * ID of the policy to attach
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * ID of the stack to attach the policy to
      */
-    public readonly stackId!: pulumi.Output<string | undefined>;
+    declare public readonly stackId: pulumi.Output<string | undefined>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -59,19 +59,19 @@ export class PolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyAttachmentState | undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["policyAttachmentId"] = state ? state.policyAttachmentId : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["policyAttachmentId"] = state?.policyAttachmentId;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["stackId"] = state?.stackId;
         } else {
             const args = argsOrState as PolicyAttachmentArgs | undefined;
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
-            resourceInputs["policyAttachmentId"] = args ? args.policyAttachmentId : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["moduleId"] = args?.moduleId;
+            resourceInputs["policyAttachmentId"] = args?.policyAttachmentId;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["stackId"] = args?.stackId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PolicyAttachment.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

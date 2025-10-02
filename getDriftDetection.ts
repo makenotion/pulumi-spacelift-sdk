@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getDriftDetection(args: GetDriftDetectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDriftDetectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getDriftDetection:getDriftDetection", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getDriftDetection:getDriftDetection", {
         "id": args.id,
         "ignoreState": args.ignoreState,
         "stackId": args.stackId,
@@ -35,7 +35,7 @@ export interface GetDriftDetectionResult {
 }
 export function getDriftDetectionOutput(args: GetDriftDetectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDriftDetectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getDriftDetection:getDriftDetection", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getDriftDetection:getDriftDetection", {
         "id": args.id,
         "ignoreState": args.ignoreState,
         "stackId": args.stackId,

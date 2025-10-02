@@ -19,7 +19,7 @@ export class NamedWebhookSecretHeader extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/namedWebhookSecretHeader:NamedWebhookSecretHeader';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/namedWebhookSecretHeader:NamedWebhookSecretHeader';
 
     /**
      * Returns true if the given object is an instance of NamedWebhookSecretHeader.  This is designed to work even
@@ -35,16 +35,16 @@ export class NamedWebhookSecretHeader extends pulumi.CustomResource {
     /**
      * key for the header
      */
-    public readonly key!: pulumi.Output<string>;
-    public readonly namedWebhookSecretHeaderId!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
+    declare public readonly namedWebhookSecretHeaderId: pulumi.Output<string>;
     /**
      * value for the header
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
     /**
      * ID of the stack on which the environment variable is defined
      */
-    public readonly webhookId!: pulumi.Output<string>;
+    declare public readonly webhookId: pulumi.Output<string>;
 
     /**
      * Create a NamedWebhookSecretHeader resource with the given unique name, arguments, and options.
@@ -59,25 +59,25 @@ export class NamedWebhookSecretHeader extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamedWebhookSecretHeaderState | undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["namedWebhookSecretHeaderId"] = state ? state.namedWebhookSecretHeaderId : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
-            resourceInputs["webhookId"] = state ? state.webhookId : undefined;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["namedWebhookSecretHeaderId"] = state?.namedWebhookSecretHeaderId;
+            resourceInputs["value"] = state?.value;
+            resourceInputs["webhookId"] = state?.webhookId;
         } else {
             const args = argsOrState as NamedWebhookSecretHeaderArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            if ((!args || args.webhookId === undefined) && !opts.urn) {
+            if (args?.webhookId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webhookId'");
             }
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["namedWebhookSecretHeaderId"] = args ? args.namedWebhookSecretHeaderId : undefined;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["namedWebhookSecretHeaderId"] = args?.namedWebhookSecretHeaderId;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
-            resourceInputs["webhookId"] = args ? args.webhookId : undefined;
+            resourceInputs["webhookId"] = args?.webhookId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["value"] };

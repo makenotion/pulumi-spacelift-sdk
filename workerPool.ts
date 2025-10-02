@@ -19,7 +19,7 @@ export class WorkerPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/workerPool:WorkerPool';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/workerPool:WorkerPool';
 
     /**
      * Returns true if the given object is an instance of WorkerPool.  This is designed to work even
@@ -35,33 +35,33 @@ export class WorkerPool extends pulumi.CustomResource {
     /**
      * credentials necessary to connect WorkerPool's workers to the control plane
      */
-    public /*out*/ readonly config!: pulumi.Output<string>;
+    declare public /*out*/ readonly config: pulumi.Output<string>;
     /**
      * certificate signing request in base64. Changing this value will trigger a token reset.
      */
-    public readonly csr!: pulumi.Output<string>;
+    declare public readonly csr: pulumi.Output<string>;
     /**
      * description of the worker pool
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Limit of how many concurrent drift detection runs are allowed per worker pool
      */
-    public readonly driftDetectionRunLimit!: pulumi.Output<number | undefined>;
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly driftDetectionRunLimit: pulumi.Output<number | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * name of the worker pool
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * private key in base64
      */
-    public /*out*/ readonly privateKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateKey: pulumi.Output<string>;
     /**
      * ID (slug) of the space the worker pool is in
      */
-    public readonly spaceId!: pulumi.Output<string>;
-    public readonly workerPoolId!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
+    declare public readonly workerPoolId: pulumi.Output<string>;
 
     /**
      * Create a WorkerPool resource with the given unique name, arguments, and options.
@@ -76,24 +76,24 @@ export class WorkerPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkerPoolState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["csr"] = state ? state.csr : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["driftDetectionRunLimit"] = state ? state.driftDetectionRunLimit : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
-            resourceInputs["workerPoolId"] = state ? state.workerPoolId : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["csr"] = state?.csr;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["driftDetectionRunLimit"] = state?.driftDetectionRunLimit;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateKey"] = state?.privateKey;
+            resourceInputs["spaceId"] = state?.spaceId;
+            resourceInputs["workerPoolId"] = state?.workerPoolId;
         } else {
             const args = argsOrState as WorkerPoolArgs | undefined;
             resourceInputs["csr"] = args?.csr ? pulumi.secret(args.csr) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["driftDetectionRunLimit"] = args ? args.driftDetectionRunLimit : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
-            resourceInputs["workerPoolId"] = args ? args.workerPoolId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["driftDetectionRunLimit"] = args?.driftDetectionRunLimit;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["spaceId"] = args?.spaceId;
+            resourceInputs["workerPoolId"] = args?.workerPoolId;
             resourceInputs["config"] = undefined /*out*/;
             resourceInputs["privateKey"] = undefined /*out*/;
         }

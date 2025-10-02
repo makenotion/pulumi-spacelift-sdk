@@ -8,7 +8,7 @@ import * as utilities from "./utilities";
 
 export function getScheduledRun(args: GetScheduledRunArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledRunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getScheduledRun:getScheduledRun", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getScheduledRun:getScheduledRun", {
         "at": args.at,
         "everies": args.everies,
         "id": args.id,
@@ -49,7 +49,7 @@ export interface GetScheduledRunResult {
 }
 export function getScheduledRunOutput(args: GetScheduledRunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledRunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getScheduledRun:getScheduledRun", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getScheduledRun:getScheduledRun", {
         "at": args.at,
         "everies": args.everies,
         "id": args.id,

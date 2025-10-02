@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getScheduledDeleteStack(args: GetScheduledDeleteStackArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledDeleteStackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getScheduledDeleteStack:getScheduledDeleteStack", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getScheduledDeleteStack:getScheduledDeleteStack", {
         "id": args.id,
         "scheduledDeleteStackId": args.scheduledDeleteStackId,
     }, opts, utilities.getPackage());
@@ -33,7 +33,7 @@ export interface GetScheduledDeleteStackResult {
 }
 export function getScheduledDeleteStackOutput(args: GetScheduledDeleteStackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledDeleteStackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getScheduledDeleteStack:getScheduledDeleteStack", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getScheduledDeleteStack:getScheduledDeleteStack", {
         "id": args.id,
         "scheduledDeleteStackId": args.scheduledDeleteStackId,
     }, opts, utilities.getPackage());

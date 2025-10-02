@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getPolicy:getPolicy", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getPolicy:getPolicy", {
         "id": args.id,
         "policyId": args.policyId,
     }, opts, utilities.getPackage());
@@ -35,7 +35,7 @@ export interface GetPolicyResult {
 }
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getPolicy:getPolicy", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getPolicy:getPolicy", {
         "id": args.id,
         "policyId": args.policyId,
     }, opts, utilities.getPackage());

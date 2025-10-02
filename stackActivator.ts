@@ -19,7 +19,7 @@ export class StackActivator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/stackActivator:StackActivator';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/stackActivator:StackActivator';
 
     /**
      * Returns true if the given object is an instance of StackActivator.  This is designed to work even
@@ -35,12 +35,12 @@ export class StackActivator extends pulumi.CustomResource {
     /**
      * Enable/disable stack
      */
-    public readonly enabled!: pulumi.Output<boolean>;
-    public readonly stackActivatorId!: pulumi.Output<string>;
+    declare public readonly enabled: pulumi.Output<boolean>;
+    declare public readonly stackActivatorId: pulumi.Output<string>;
     /**
      * ID of the stack to enable/disable
      */
-    public readonly stackId!: pulumi.Output<string>;
+    declare public readonly stackId: pulumi.Output<string>;
 
     /**
      * Create a StackActivator resource with the given unique name, arguments, and options.
@@ -55,20 +55,20 @@ export class StackActivator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackActivatorState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["stackActivatorId"] = state ? state.stackActivatorId : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["stackActivatorId"] = state?.stackActivatorId;
+            resourceInputs["stackId"] = state?.stackId;
         } else {
             const args = argsOrState as StackActivatorArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.stackId === undefined) && !opts.urn) {
+            if (args?.stackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["stackActivatorId"] = args ? args.stackActivatorId : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["stackActivatorId"] = args?.stackActivatorId;
+            resourceInputs["stackId"] = args?.stackId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StackActivator.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

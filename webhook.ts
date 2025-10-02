@@ -19,7 +19,7 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/webhook:Webhook';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/webhook:Webhook';
 
     /**
      * Returns true if the given object is an instance of Webhook.  This is designed to work even
@@ -35,25 +35,25 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * enables or disables sending webhooks. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * endpoint to send the POST request to
      */
-    public readonly endpoint!: pulumi.Output<string>;
+    declare public readonly endpoint: pulumi.Output<string>;
     /**
      * ID of the module which triggers the webhooks
      */
-    public readonly moduleId!: pulumi.Output<string | undefined>;
+    declare public readonly moduleId: pulumi.Output<string | undefined>;
     /**
      * secret used to sign each POST request so you're able to verify that the request comes from us. Defaults to an empty
      * value. Note that once it's created, it will be just an empty string in the state due to security reasons.
      */
-    public readonly secret!: pulumi.Output<string | undefined>;
+    declare public readonly secret: pulumi.Output<string | undefined>;
     /**
      * ID of the stack which triggers the webhooks
      */
-    public readonly stackId!: pulumi.Output<string | undefined>;
-    public readonly webhookId!: pulumi.Output<string>;
+    declare public readonly stackId: pulumi.Output<string | undefined>;
+    declare public readonly webhookId: pulumi.Output<string>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -68,23 +68,23 @@ export class Webhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["secret"] = state ? state.secret : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["webhookId"] = state ? state.webhookId : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["secret"] = state?.secret;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["webhookId"] = state?.webhookId;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
-            if ((!args || args.endpoint === undefined) && !opts.urn) {
+            if (args?.endpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpoint'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["moduleId"] = args?.moduleId;
             resourceInputs["secret"] = args?.secret ? pulumi.secret(args.secret) : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["webhookId"] = args ? args.webhookId : undefined;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["webhookId"] = args?.webhookId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secret"] };

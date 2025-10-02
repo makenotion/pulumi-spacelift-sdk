@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getAzureIntegrationAttachment(args: GetAzureIntegrationAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureIntegrationAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getAzureIntegrationAttachment:getAzureIntegrationAttachment", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getAzureIntegrationAttachment:getAzureIntegrationAttachment", {
         "id": args.id,
         "integrationId": args.integrationId,
         "moduleId": args.moduleId,
@@ -39,7 +39,7 @@ export interface GetAzureIntegrationAttachmentResult {
 }
 export function getAzureIntegrationAttachmentOutput(args: GetAzureIntegrationAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureIntegrationAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getAzureIntegrationAttachment:getAzureIntegrationAttachment", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getAzureIntegrationAttachment:getAzureIntegrationAttachment", {
         "id": args.id,
         "integrationId": args.integrationId,
         "moduleId": args.moduleId,

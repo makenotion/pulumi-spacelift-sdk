@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getBitbucketCloudIntegration(args?: GetBitbucketCloudIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetBitbucketCloudIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getBitbucketCloudIntegration:getBitbucketCloudIntegration", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getBitbucketCloudIntegration:getBitbucketCloudIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -36,7 +36,7 @@ export interface GetBitbucketCloudIntegrationResult {
 export function getBitbucketCloudIntegrationOutput(args?: GetBitbucketCloudIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBitbucketCloudIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getBitbucketCloudIntegration:getBitbucketCloudIntegration", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getBitbucketCloudIntegration:getBitbucketCloudIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

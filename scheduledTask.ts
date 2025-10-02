@@ -19,7 +19,7 @@ export class ScheduledTask extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/scheduledTask:ScheduledTask';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/scheduledTask:ScheduledTask';
 
     /**
      * Returns true if the given object is an instance of ScheduledTask.  This is designed to work even
@@ -35,28 +35,28 @@ export class ScheduledTask extends pulumi.CustomResource {
     /**
      * Timestamp (unix timestamp) at which time the scheduled task should happen.
      */
-    public readonly at!: pulumi.Output<number | undefined>;
+    declare public readonly at: pulumi.Output<number | undefined>;
     /**
      * Command that will be run.
      */
-    public readonly command!: pulumi.Output<string>;
+    declare public readonly command: pulumi.Output<string>;
     /**
      * List of cron schedule expressions based on which the scheduled task should be triggered.
      */
-    public readonly everies!: pulumi.Output<string[] | undefined>;
+    declare public readonly everies: pulumi.Output<string[] | undefined>;
     /**
      * ID of the schedule
      */
-    public readonly scheduleId!: pulumi.Output<string>;
-    public readonly scheduledTaskId!: pulumi.Output<string>;
+    declare public readonly scheduleId: pulumi.Output<string>;
+    declare public readonly scheduledTaskId: pulumi.Output<string>;
     /**
      * ID of the stack for which to set up the scheduled task
      */
-    public readonly stackId!: pulumi.Output<string>;
+    declare public readonly stackId: pulumi.Output<string>;
     /**
      * Timezone in which the schedule is expressed. Defaults to `UTC`.
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a ScheduledTask resource with the given unique name, arguments, and options.
@@ -71,28 +71,28 @@ export class ScheduledTask extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledTaskState | undefined;
-            resourceInputs["at"] = state ? state.at : undefined;
-            resourceInputs["command"] = state ? state.command : undefined;
-            resourceInputs["everies"] = state ? state.everies : undefined;
-            resourceInputs["scheduleId"] = state ? state.scheduleId : undefined;
-            resourceInputs["scheduledTaskId"] = state ? state.scheduledTaskId : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["at"] = state?.at;
+            resourceInputs["command"] = state?.command;
+            resourceInputs["everies"] = state?.everies;
+            resourceInputs["scheduleId"] = state?.scheduleId;
+            resourceInputs["scheduledTaskId"] = state?.scheduledTaskId;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as ScheduledTaskArgs | undefined;
-            if ((!args || args.command === undefined) && !opts.urn) {
+            if (args?.command === undefined && !opts.urn) {
                 throw new Error("Missing required property 'command'");
             }
-            if ((!args || args.stackId === undefined) && !opts.urn) {
+            if (args?.stackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["at"] = args ? args.at : undefined;
-            resourceInputs["command"] = args ? args.command : undefined;
-            resourceInputs["everies"] = args ? args.everies : undefined;
-            resourceInputs["scheduleId"] = args ? args.scheduleId : undefined;
-            resourceInputs["scheduledTaskId"] = args ? args.scheduledTaskId : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["at"] = args?.at;
+            resourceInputs["command"] = args?.command;
+            resourceInputs["everies"] = args?.everies;
+            resourceInputs["scheduleId"] = args?.scheduleId;
+            resourceInputs["scheduledTaskId"] = args?.scheduledTaskId;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["timezone"] = args?.timezone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScheduledTask.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

@@ -19,7 +19,7 @@ export class EnvironmentVariable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/environmentVariable:EnvironmentVariable';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/environmentVariable:EnvironmentVariable';
 
     /**
      * Returns true if the given object is an instance of EnvironmentVariable.  This is designed to work even
@@ -35,36 +35,36 @@ export class EnvironmentVariable extends pulumi.CustomResource {
     /**
      * SHA-256 checksum of the value
      */
-    public /*out*/ readonly checksum!: pulumi.Output<string>;
+    declare public /*out*/ readonly checksum: pulumi.Output<string>;
     /**
      * ID of the context on which the environment variable is defined
      */
-    public readonly contextId!: pulumi.Output<string | undefined>;
+    declare public readonly contextId: pulumi.Output<string | undefined>;
     /**
      * Description of the environment variable
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly environmentVariableId!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly environmentVariableId: pulumi.Output<string>;
     /**
      * ID of the module on which the environment variable is defined
      */
-    public readonly moduleId!: pulumi.Output<string | undefined>;
+    declare public readonly moduleId: pulumi.Output<string | undefined>;
     /**
      * Name of the environment variable
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ID of the stack on which the environment variable is defined
      */
-    public readonly stackId!: pulumi.Output<string | undefined>;
+    declare public readonly stackId: pulumi.Output<string | undefined>;
     /**
      * Value of the environment variable. Defaults to an empty string.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the value is secret or not. Defaults to `true`.
      */
-    public readonly writeOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly writeOnly: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a EnvironmentVariable resource with the given unique name, arguments, and options.
@@ -79,25 +79,25 @@ export class EnvironmentVariable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentVariableState | undefined;
-            resourceInputs["checksum"] = state ? state.checksum : undefined;
-            resourceInputs["contextId"] = state ? state.contextId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["environmentVariableId"] = state ? state.environmentVariableId : undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
-            resourceInputs["writeOnly"] = state ? state.writeOnly : undefined;
+            resourceInputs["checksum"] = state?.checksum;
+            resourceInputs["contextId"] = state?.contextId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["environmentVariableId"] = state?.environmentVariableId;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["value"] = state?.value;
+            resourceInputs["writeOnly"] = state?.writeOnly;
         } else {
             const args = argsOrState as EnvironmentVariableArgs | undefined;
-            resourceInputs["contextId"] = args ? args.contextId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentVariableId"] = args ? args.environmentVariableId : undefined;
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["contextId"] = args?.contextId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentVariableId"] = args?.environmentVariableId;
+            resourceInputs["moduleId"] = args?.moduleId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stackId"] = args?.stackId;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
-            resourceInputs["writeOnly"] = args ? args.writeOnly : undefined;
+            resourceInputs["writeOnly"] = args?.writeOnly;
             resourceInputs["checksum"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

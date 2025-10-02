@@ -21,7 +21,7 @@ export class Module extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/module:Module';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/module:Module';
 
     /**
      * Returns true if the given object is an instance of Module.  This is designed to work even
@@ -37,93 +37,93 @@ export class Module extends pulumi.CustomResource {
     /**
      * Indicates whether this module can manage others. Defaults to `false`.
      */
-    public readonly administrative!: pulumi.Output<boolean | undefined>;
+    declare public readonly administrative: pulumi.Output<boolean | undefined>;
     /**
      * AWS IAM assume role policy statement setting up trust relationship
      */
-    public /*out*/ readonly awsAssumeRolePolicyStatement!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsAssumeRolePolicyStatement: pulumi.Output<string>;
     /**
      * Azure DevOps VCS settings
      */
-    public readonly azureDevops!: pulumi.Output<outputs.ModuleAzureDevops | undefined>;
+    declare public readonly azureDevops: pulumi.Output<outputs.ModuleAzureDevops | undefined>;
     /**
      * Bitbucket Cloud VCS settings
      */
-    public readonly bitbucketCloud!: pulumi.Output<outputs.ModuleBitbucketCloud | undefined>;
+    declare public readonly bitbucketCloud: pulumi.Output<outputs.ModuleBitbucketCloud | undefined>;
     /**
      * Bitbucket Datacenter VCS settings
      */
-    public readonly bitbucketDatacenter!: pulumi.Output<outputs.ModuleBitbucketDatacenter | undefined>;
+    declare public readonly bitbucketDatacenter: pulumi.Output<outputs.ModuleBitbucketDatacenter | undefined>;
     /**
      * GitHub branch to apply changes to
      */
-    public readonly branch!: pulumi.Output<string>;
+    declare public readonly branch: pulumi.Output<string>;
     /**
      * Free-form module description for users
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates whether local preview versions can be triggered on this Module. Defaults to `false`.
      */
-    public readonly enableLocalPreview!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableLocalPreview: pulumi.Output<boolean | undefined>;
     /**
      * Git sparse checkout paths is an optional list of paths to use for sparse checkout. If not set, the entire repository
      * will be checked out.
      */
-    public readonly gitSparseCheckoutPaths!: pulumi.Output<string[] | undefined>;
+    declare public readonly gitSparseCheckoutPaths: pulumi.Output<string[] | undefined>;
     /**
      * GitHub Enterprise (self-hosted) VCS settings
      */
-    public readonly githubEnterprise!: pulumi.Output<outputs.ModuleGithubEnterprise | undefined>;
+    declare public readonly githubEnterprise: pulumi.Output<outputs.ModuleGithubEnterprise | undefined>;
     /**
      * GitLab VCS settings
      */
-    public readonly gitlab!: pulumi.Output<outputs.ModuleGitlab | undefined>;
-    public readonly labels!: pulumi.Output<string[] | undefined>;
-    public readonly moduleId!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly gitlab: pulumi.Output<outputs.ModuleGitlab | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
+    declare public readonly moduleId: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Project root is the optional directory relative to the repository root containing the module source code.
      */
-    public readonly projectRoot!: pulumi.Output<string | undefined>;
+    declare public readonly projectRoot: pulumi.Output<string | undefined>;
     /**
      * Protect this module from accidental deletion. If set, attempts to delete this module will fail. Defaults to `false`.
      */
-    public readonly protectFromDeletion!: pulumi.Output<boolean | undefined>;
+    declare public readonly protectFromDeletion: pulumi.Output<boolean | undefined>;
     /**
      * Make this module publicly accessible. Can only be set at creation time. Defaults to `false`.
      */
-    public readonly public!: pulumi.Output<boolean | undefined>;
+    declare public readonly public: pulumi.Output<boolean | undefined>;
     /**
      * One-way VCS integration using a raw Git repository link
      */
-    public readonly rawGit!: pulumi.Output<outputs.ModuleRawGit | undefined>;
+    declare public readonly rawGit: pulumi.Output<outputs.ModuleRawGit | undefined>;
     /**
      * Name of the repository, without the owner part
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * Name of the Docker image used to process Runs
      */
-    public readonly runnerImage!: pulumi.Output<string | undefined>;
+    declare public readonly runnerImage: pulumi.Output<string | undefined>;
     /**
      * List of the accounts (subdomains) which should have access to the Module
      */
-    public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly sharedAccounts: pulumi.Output<string[] | undefined>;
     /**
      * ID (slug) of the space the module is in
      */
-    public readonly spaceId!: pulumi.Output<string>;
-    public readonly terraformProvider!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
+    declare public readonly terraformProvider: pulumi.Output<string>;
     /**
      * ID of the worker pool to use. NOTE: worker_pool_id is required when using a self-hosted instance of Spacelift.
      */
-    public readonly workerPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly workerPoolId: pulumi.Output<string | undefined>;
     /**
      * Defines the tool that will be used to execute the workflow. This can be one of `OPEN_TOFU`, `TERRAFORM_FOSS` or
      * `CUSTOM`. Defaults to `TERRAFORM_FOSS`.
      */
-    public readonly workflowTool!: pulumi.Output<string>;
+    declare public readonly workflowTool: pulumi.Output<string>;
 
     /**
      * Create a Module resource with the given unique name, arguments, and options.
@@ -138,63 +138,63 @@ export class Module extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModuleState | undefined;
-            resourceInputs["administrative"] = state ? state.administrative : undefined;
-            resourceInputs["awsAssumeRolePolicyStatement"] = state ? state.awsAssumeRolePolicyStatement : undefined;
-            resourceInputs["azureDevops"] = state ? state.azureDevops : undefined;
-            resourceInputs["bitbucketCloud"] = state ? state.bitbucketCloud : undefined;
-            resourceInputs["bitbucketDatacenter"] = state ? state.bitbucketDatacenter : undefined;
-            resourceInputs["branch"] = state ? state.branch : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enableLocalPreview"] = state ? state.enableLocalPreview : undefined;
-            resourceInputs["gitSparseCheckoutPaths"] = state ? state.gitSparseCheckoutPaths : undefined;
-            resourceInputs["githubEnterprise"] = state ? state.githubEnterprise : undefined;
-            resourceInputs["gitlab"] = state ? state.gitlab : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectRoot"] = state ? state.projectRoot : undefined;
-            resourceInputs["protectFromDeletion"] = state ? state.protectFromDeletion : undefined;
-            resourceInputs["public"] = state ? state.public : undefined;
-            resourceInputs["rawGit"] = state ? state.rawGit : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["runnerImage"] = state ? state.runnerImage : undefined;
-            resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
-            resourceInputs["terraformProvider"] = state ? state.terraformProvider : undefined;
-            resourceInputs["workerPoolId"] = state ? state.workerPoolId : undefined;
-            resourceInputs["workflowTool"] = state ? state.workflowTool : undefined;
+            resourceInputs["administrative"] = state?.administrative;
+            resourceInputs["awsAssumeRolePolicyStatement"] = state?.awsAssumeRolePolicyStatement;
+            resourceInputs["azureDevops"] = state?.azureDevops;
+            resourceInputs["bitbucketCloud"] = state?.bitbucketCloud;
+            resourceInputs["bitbucketDatacenter"] = state?.bitbucketDatacenter;
+            resourceInputs["branch"] = state?.branch;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enableLocalPreview"] = state?.enableLocalPreview;
+            resourceInputs["gitSparseCheckoutPaths"] = state?.gitSparseCheckoutPaths;
+            resourceInputs["githubEnterprise"] = state?.githubEnterprise;
+            resourceInputs["gitlab"] = state?.gitlab;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectRoot"] = state?.projectRoot;
+            resourceInputs["protectFromDeletion"] = state?.protectFromDeletion;
+            resourceInputs["public"] = state?.public;
+            resourceInputs["rawGit"] = state?.rawGit;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["runnerImage"] = state?.runnerImage;
+            resourceInputs["sharedAccounts"] = state?.sharedAccounts;
+            resourceInputs["spaceId"] = state?.spaceId;
+            resourceInputs["terraformProvider"] = state?.terraformProvider;
+            resourceInputs["workerPoolId"] = state?.workerPoolId;
+            resourceInputs["workflowTool"] = state?.workflowTool;
         } else {
             const args = argsOrState as ModuleArgs | undefined;
-            if ((!args || args.branch === undefined) && !opts.urn) {
+            if (args?.branch === undefined && !opts.urn) {
                 throw new Error("Missing required property 'branch'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["administrative"] = args ? args.administrative : undefined;
-            resourceInputs["azureDevops"] = args ? args.azureDevops : undefined;
-            resourceInputs["bitbucketCloud"] = args ? args.bitbucketCloud : undefined;
-            resourceInputs["bitbucketDatacenter"] = args ? args.bitbucketDatacenter : undefined;
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enableLocalPreview"] = args ? args.enableLocalPreview : undefined;
-            resourceInputs["gitSparseCheckoutPaths"] = args ? args.gitSparseCheckoutPaths : undefined;
-            resourceInputs["githubEnterprise"] = args ? args.githubEnterprise : undefined;
-            resourceInputs["gitlab"] = args ? args.gitlab : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectRoot"] = args ? args.projectRoot : undefined;
-            resourceInputs["protectFromDeletion"] = args ? args.protectFromDeletion : undefined;
-            resourceInputs["public"] = args ? args.public : undefined;
-            resourceInputs["rawGit"] = args ? args.rawGit : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["runnerImage"] = args ? args.runnerImage : undefined;
-            resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
-            resourceInputs["terraformProvider"] = args ? args.terraformProvider : undefined;
-            resourceInputs["workerPoolId"] = args ? args.workerPoolId : undefined;
-            resourceInputs["workflowTool"] = args ? args.workflowTool : undefined;
+            resourceInputs["administrative"] = args?.administrative;
+            resourceInputs["azureDevops"] = args?.azureDevops;
+            resourceInputs["bitbucketCloud"] = args?.bitbucketCloud;
+            resourceInputs["bitbucketDatacenter"] = args?.bitbucketDatacenter;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enableLocalPreview"] = args?.enableLocalPreview;
+            resourceInputs["gitSparseCheckoutPaths"] = args?.gitSparseCheckoutPaths;
+            resourceInputs["githubEnterprise"] = args?.githubEnterprise;
+            resourceInputs["gitlab"] = args?.gitlab;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["moduleId"] = args?.moduleId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectRoot"] = args?.projectRoot;
+            resourceInputs["protectFromDeletion"] = args?.protectFromDeletion;
+            resourceInputs["public"] = args?.public;
+            resourceInputs["rawGit"] = args?.rawGit;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["runnerImage"] = args?.runnerImage;
+            resourceInputs["sharedAccounts"] = args?.sharedAccounts;
+            resourceInputs["spaceId"] = args?.spaceId;
+            resourceInputs["terraformProvider"] = args?.terraformProvider;
+            resourceInputs["workerPoolId"] = args?.workerPoolId;
+            resourceInputs["workflowTool"] = args?.workflowTool;
             resourceInputs["awsAssumeRolePolicyStatement"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

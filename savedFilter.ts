@@ -19,7 +19,7 @@ export class SavedFilter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/savedFilter:SavedFilter';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/savedFilter:SavedFilter';
 
     /**
      * Returns true if the given object is an instance of SavedFilter.  This is designed to work even
@@ -35,24 +35,24 @@ export class SavedFilter extends pulumi.CustomResource {
     /**
      * Login of the user who created the saved filter
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Data is the JSON representation of the filter data
      */
-    public readonly data!: pulumi.Output<string>;
+    declare public readonly data: pulumi.Output<string>;
     /**
      * Toggle whether the filter is public or not
      */
-    public readonly isPublic!: pulumi.Output<boolean>;
+    declare public readonly isPublic: pulumi.Output<boolean>;
     /**
      * Name of the saved filter
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Type describes the type of the filter. It is used to determine which view the filter is for. Possible values are
      * `stacks`, `blueprints`, `contexts`, `webhooks`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a SavedFilter resource with the given unique name, arguments, and options.
@@ -67,26 +67,26 @@ export class SavedFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SavedFilterState | undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["data"] = state ? state.data : undefined;
-            resourceInputs["isPublic"] = state ? state.isPublic : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["data"] = state?.data;
+            resourceInputs["isPublic"] = state?.isPublic;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as SavedFilterArgs | undefined;
-            if ((!args || args.data === undefined) && !opts.urn) {
+            if (args?.data === undefined && !opts.urn) {
                 throw new Error("Missing required property 'data'");
             }
-            if ((!args || args.isPublic === undefined) && !opts.urn) {
+            if (args?.isPublic === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isPublic'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["data"] = args ? args.data : undefined;
-            resourceInputs["isPublic"] = args ? args.isPublic : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["data"] = args?.data;
+            resourceInputs["isPublic"] = args?.isPublic;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["type"] = args?.type;
             resourceInputs["createdBy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

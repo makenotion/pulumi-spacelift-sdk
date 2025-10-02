@@ -21,7 +21,7 @@ export class Run extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/run:Run';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/run:Run';
 
     /**
      * Returns true if the given object is an instance of Run.  This is designed to work even
@@ -37,24 +37,24 @@ export class Run extends pulumi.CustomResource {
     /**
      * The commit SHA for which to trigger a run.
      */
-    public readonly commitSha!: pulumi.Output<string | undefined>;
+    declare public readonly commitSha: pulumi.Output<string | undefined>;
     /**
      * Arbitrary map of values that, when changed, will trigger recreation of the resource.
      */
-    public readonly keepers!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly keepers: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether the run is a proposed run. Defaults to `false`.
      */
-    public readonly proposed!: pulumi.Output<boolean | undefined>;
+    declare public readonly proposed: pulumi.Output<boolean | undefined>;
     /**
      * ID of the stack on which the run is to be triggered.
      */
-    public readonly stackId!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.RunTimeouts | undefined>;
+    declare public readonly stackId: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.RunTimeouts | undefined>;
     /**
      * Wait for the run to finish
      */
-    public readonly wait!: pulumi.Output<outputs.RunWait | undefined>;
+    declare public readonly wait: pulumi.Output<outputs.RunWait | undefined>;
 
     /**
      * Create a Run resource with the given unique name, arguments, and options.
@@ -69,23 +69,23 @@ export class Run extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RunState | undefined;
-            resourceInputs["commitSha"] = state ? state.commitSha : undefined;
-            resourceInputs["keepers"] = state ? state.keepers : undefined;
-            resourceInputs["proposed"] = state ? state.proposed : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
-            resourceInputs["wait"] = state ? state.wait : undefined;
+            resourceInputs["commitSha"] = state?.commitSha;
+            resourceInputs["keepers"] = state?.keepers;
+            resourceInputs["proposed"] = state?.proposed;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["timeouts"] = state?.timeouts;
+            resourceInputs["wait"] = state?.wait;
         } else {
             const args = argsOrState as RunArgs | undefined;
-            if ((!args || args.stackId === undefined) && !opts.urn) {
+            if (args?.stackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["commitSha"] = args ? args.commitSha : undefined;
-            resourceInputs["keepers"] = args ? args.keepers : undefined;
-            resourceInputs["proposed"] = args ? args.proposed : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
-            resourceInputs["wait"] = args ? args.wait : undefined;
+            resourceInputs["commitSha"] = args?.commitSha;
+            resourceInputs["keepers"] = args?.keepers;
+            resourceInputs["proposed"] = args?.proposed;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["wait"] = args?.wait;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Run.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

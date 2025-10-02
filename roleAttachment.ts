@@ -19,7 +19,7 @@ export class RoleAttachment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/roleAttachment:RoleAttachment';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/roleAttachment:RoleAttachment';
 
     /**
      * Returns true if the given object is an instance of RoleAttachment.  This is designed to work even
@@ -35,25 +35,25 @@ export class RoleAttachment extends pulumi.CustomResource {
     /**
      * ID of the API key (ULID format) to attach to the role. For example: `01F8Z5K4Y3D1G2H3J4K5L6M7N8`.
      */
-    public readonly apiKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly apiKeyId: pulumi.Output<string | undefined>;
     /**
      * ID of the IdP Group Mapping (ULID format) to attach to the role. For example: `01F8Z5K4Y3D1G2H3J4K5L6M7N8`.
      */
-    public readonly idpGroupMappingId!: pulumi.Output<string | undefined>;
-    public readonly roleAttachmentId!: pulumi.Output<string>;
+    declare public readonly idpGroupMappingId: pulumi.Output<string | undefined>;
+    declare public readonly roleAttachmentId: pulumi.Output<string>;
     /**
      * ID of the role (ULID format) to attach to the API key, IdP Group or to the user. For example:
      * `01F8Z5K4Y3D1G2H3J4K5L6M7N8`.
      */
-    public readonly roleId!: pulumi.Output<string>;
+    declare public readonly roleId: pulumi.Output<string>;
     /**
      * ID of the space where the role attachment should be created
      */
-    public readonly spaceId!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
     /**
      * ID of the user (ULID format) to attach to the role. For example: `01F8Z5K4Y3D1G2H3J4K5L6M7N8`.
      */
-    public readonly userId!: pulumi.Output<string | undefined>;
+    declare public readonly userId: pulumi.Output<string | undefined>;
 
     /**
      * Create a RoleAttachment resource with the given unique name, arguments, and options.
@@ -68,26 +68,26 @@ export class RoleAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleAttachmentState | undefined;
-            resourceInputs["apiKeyId"] = state ? state.apiKeyId : undefined;
-            resourceInputs["idpGroupMappingId"] = state ? state.idpGroupMappingId : undefined;
-            resourceInputs["roleAttachmentId"] = state ? state.roleAttachmentId : undefined;
-            resourceInputs["roleId"] = state ? state.roleId : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["apiKeyId"] = state?.apiKeyId;
+            resourceInputs["idpGroupMappingId"] = state?.idpGroupMappingId;
+            resourceInputs["roleAttachmentId"] = state?.roleAttachmentId;
+            resourceInputs["roleId"] = state?.roleId;
+            resourceInputs["spaceId"] = state?.spaceId;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as RoleAttachmentArgs | undefined;
-            if ((!args || args.roleId === undefined) && !opts.urn) {
+            if (args?.roleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleId'");
             }
-            if ((!args || args.spaceId === undefined) && !opts.urn) {
+            if (args?.spaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spaceId'");
             }
-            resourceInputs["apiKeyId"] = args ? args.apiKeyId : undefined;
-            resourceInputs["idpGroupMappingId"] = args ? args.idpGroupMappingId : undefined;
-            resourceInputs["roleAttachmentId"] = args ? args.roleAttachmentId : undefined;
-            resourceInputs["roleId"] = args ? args.roleId : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["apiKeyId"] = args?.apiKeyId;
+            resourceInputs["idpGroupMappingId"] = args?.idpGroupMappingId;
+            resourceInputs["roleAttachmentId"] = args?.roleAttachmentId;
+            resourceInputs["roleId"] = args?.roleId;
+            resourceInputs["spaceId"] = args?.spaceId;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RoleAttachment.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

@@ -21,7 +21,7 @@ export class ScheduledRun extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/scheduledRun:ScheduledRun';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/scheduledRun:ScheduledRun';
 
     /**
      * Returns true if the given object is an instance of ScheduledRun.  This is designed to work even
@@ -37,36 +37,36 @@ export class ScheduledRun extends pulumi.CustomResource {
     /**
      * Timestamp (unix timestamp) at which time the scheduled run should happen.
      */
-    public readonly at!: pulumi.Output<number | undefined>;
+    declare public readonly at: pulumi.Output<number | undefined>;
     /**
      * List of cron schedule expressions based on which the scheduled run should be triggered.
      */
-    public readonly everies!: pulumi.Output<string[] | undefined>;
+    declare public readonly everies: pulumi.Output<string[] | undefined>;
     /**
      * Name of the scheduled run
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Timestamp (unix timestamp) of when the next run will be scheduled.
      */
-    public /*out*/ readonly nextSchedule!: pulumi.Output<number>;
+    declare public /*out*/ readonly nextSchedule: pulumi.Output<number>;
     /**
      * Customer provided runtime configuration for this scheduled run.
      */
-    public readonly runtimeConfig!: pulumi.Output<outputs.ScheduledRunRuntimeConfig | undefined>;
+    declare public readonly runtimeConfig: pulumi.Output<outputs.ScheduledRunRuntimeConfig | undefined>;
     /**
      * ID of the schedule
      */
-    public readonly scheduleId!: pulumi.Output<string>;
-    public readonly scheduledRunId!: pulumi.Output<string>;
+    declare public readonly scheduleId: pulumi.Output<string>;
+    declare public readonly scheduledRunId: pulumi.Output<string>;
     /**
      * ID of the stack for which to set up the scheduled run
      */
-    public readonly stackId!: pulumi.Output<string>;
+    declare public readonly stackId: pulumi.Output<string>;
     /**
      * Timezone in which the schedule is expressed. Defaults to `UTC`.
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a ScheduledRun resource with the given unique name, arguments, and options.
@@ -81,28 +81,28 @@ export class ScheduledRun extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledRunState | undefined;
-            resourceInputs["at"] = state ? state.at : undefined;
-            resourceInputs["everies"] = state ? state.everies : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nextSchedule"] = state ? state.nextSchedule : undefined;
-            resourceInputs["runtimeConfig"] = state ? state.runtimeConfig : undefined;
-            resourceInputs["scheduleId"] = state ? state.scheduleId : undefined;
-            resourceInputs["scheduledRunId"] = state ? state.scheduledRunId : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["at"] = state?.at;
+            resourceInputs["everies"] = state?.everies;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nextSchedule"] = state?.nextSchedule;
+            resourceInputs["runtimeConfig"] = state?.runtimeConfig;
+            resourceInputs["scheduleId"] = state?.scheduleId;
+            resourceInputs["scheduledRunId"] = state?.scheduledRunId;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as ScheduledRunArgs | undefined;
-            if ((!args || args.stackId === undefined) && !opts.urn) {
+            if (args?.stackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["at"] = args ? args.at : undefined;
-            resourceInputs["everies"] = args ? args.everies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["runtimeConfig"] = args ? args.runtimeConfig : undefined;
-            resourceInputs["scheduleId"] = args ? args.scheduleId : undefined;
-            resourceInputs["scheduledRunId"] = args ? args.scheduledRunId : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["at"] = args?.at;
+            resourceInputs["everies"] = args?.everies;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["runtimeConfig"] = args?.runtimeConfig;
+            resourceInputs["scheduleId"] = args?.scheduleId;
+            resourceInputs["scheduledRunId"] = args?.scheduledRunId;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["timezone"] = args?.timezone;
             resourceInputs["nextSchedule"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

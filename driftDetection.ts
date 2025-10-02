@@ -19,7 +19,7 @@ export class DriftDetection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/driftDetection:DriftDetection';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/driftDetection:DriftDetection';
 
     /**
      * Returns true if the given object is an instance of DriftDetection.  This is designed to work even
@@ -32,27 +32,27 @@ export class DriftDetection extends pulumi.CustomResource {
         return obj['__pulumiType'] === DriftDetection.__pulumiType;
     }
 
-    public readonly driftDetectionId!: pulumi.Output<string>;
+    declare public readonly driftDetectionId: pulumi.Output<string>;
     /**
      * Controls whether drift detection should be performed on a stack in any final state instead of just 'Finished'.
      */
-    public readonly ignoreState!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreState: pulumi.Output<boolean | undefined>;
     /**
      * Whether a tracked run should be triggered when drift is detected.
      */
-    public readonly reconcile!: pulumi.Output<boolean | undefined>;
+    declare public readonly reconcile: pulumi.Output<boolean | undefined>;
     /**
      * List of cron schedule expressions based on which drift detection should be triggered.
      */
-    public readonly schedules!: pulumi.Output<string[]>;
+    declare public readonly schedules: pulumi.Output<string[]>;
     /**
      * ID of the stack for which to set up drift detection
      */
-    public readonly stackId!: pulumi.Output<string>;
+    declare public readonly stackId: pulumi.Output<string>;
     /**
      * Timezone in which the schedule is expressed. Defaults to `UTC`.
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a DriftDetection resource with the given unique name, arguments, and options.
@@ -67,26 +67,26 @@ export class DriftDetection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DriftDetectionState | undefined;
-            resourceInputs["driftDetectionId"] = state ? state.driftDetectionId : undefined;
-            resourceInputs["ignoreState"] = state ? state.ignoreState : undefined;
-            resourceInputs["reconcile"] = state ? state.reconcile : undefined;
-            resourceInputs["schedules"] = state ? state.schedules : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["driftDetectionId"] = state?.driftDetectionId;
+            resourceInputs["ignoreState"] = state?.ignoreState;
+            resourceInputs["reconcile"] = state?.reconcile;
+            resourceInputs["schedules"] = state?.schedules;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as DriftDetectionArgs | undefined;
-            if ((!args || args.schedules === undefined) && !opts.urn) {
+            if (args?.schedules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedules'");
             }
-            if ((!args || args.stackId === undefined) && !opts.urn) {
+            if (args?.stackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["driftDetectionId"] = args ? args.driftDetectionId : undefined;
-            resourceInputs["ignoreState"] = args ? args.ignoreState : undefined;
-            resourceInputs["reconcile"] = args ? args.reconcile : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["driftDetectionId"] = args?.driftDetectionId;
+            resourceInputs["ignoreState"] = args?.ignoreState;
+            resourceInputs["reconcile"] = args?.reconcile;
+            resourceInputs["schedules"] = args?.schedules;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["timezone"] = args?.timezone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DriftDetection.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

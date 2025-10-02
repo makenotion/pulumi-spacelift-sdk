@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getScheduledTask(args: GetScheduledTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getScheduledTask:getScheduledTask", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getScheduledTask:getScheduledTask", {
         "id": args.id,
         "scheduledTaskId": args.scheduledTaskId,
     }, opts, utilities.getPackage());
@@ -35,7 +35,7 @@ export interface GetScheduledTaskResult {
 }
 export function getScheduledTaskOutput(args: GetScheduledTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getScheduledTask:getScheduledTask", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getScheduledTask:getScheduledTask", {
         "id": args.id,
         "scheduledTaskId": args.scheduledTaskId,
     }, opts, utilities.getPackage());

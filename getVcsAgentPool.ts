@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getVcsAgentPool(args: GetVcsAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetVcsAgentPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getVcsAgentPool:getVcsAgentPool", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getVcsAgentPool:getVcsAgentPool", {
         "id": args.id,
         "vcsAgentPoolId": args.vcsAgentPoolId,
     }, opts, utilities.getPackage());
@@ -31,7 +31,7 @@ export interface GetVcsAgentPoolResult {
 }
 export function getVcsAgentPoolOutput(args: GetVcsAgentPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVcsAgentPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getVcsAgentPool:getVcsAgentPool", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getVcsAgentPool:getVcsAgentPool", {
         "id": args.id,
         "vcsAgentPoolId": args.vcsAgentPoolId,
     }, opts, utilities.getPackage());

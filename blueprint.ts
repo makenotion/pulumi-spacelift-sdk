@@ -19,7 +19,7 @@ export class Blueprint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/blueprint:Blueprint';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/blueprint:Blueprint';
 
     /**
      * Returns true if the given object is an instance of Blueprint.  This is designed to work even
@@ -32,31 +32,31 @@ export class Blueprint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Blueprint.__pulumiType;
     }
 
-    public readonly blueprintId!: pulumi.Output<string>;
+    declare public readonly blueprintId: pulumi.Output<string>;
     /**
      * Description of the blueprint
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Labels of the blueprint
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * Name of the blueprint
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ID of the space the blueprint is in
      */
-    public readonly space!: pulumi.Output<string>;
+    declare public readonly space: pulumi.Output<string>;
     /**
      * State of the blueprint. Value can be `DRAFT` or `PUBLISHED`.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Body of the blueprint. If `state` is set to `PUBLISHED`, this field is required.
      */
-    public readonly template!: pulumi.Output<string | undefined>;
+    declare public readonly template: pulumi.Output<string | undefined>;
 
     /**
      * Create a Blueprint resource with the given unique name, arguments, and options.
@@ -71,28 +71,28 @@ export class Blueprint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BlueprintState | undefined;
-            resourceInputs["blueprintId"] = state ? state.blueprintId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["space"] = state ? state.space : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["template"] = state ? state.template : undefined;
+            resourceInputs["blueprintId"] = state?.blueprintId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["space"] = state?.space;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["template"] = state?.template;
         } else {
             const args = argsOrState as BlueprintArgs | undefined;
-            if ((!args || args.space === undefined) && !opts.urn) {
+            if (args?.space === undefined && !opts.urn) {
                 throw new Error("Missing required property 'space'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["space"] = args ? args.space : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["blueprintId"] = args?.blueprintId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["space"] = args?.space;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["template"] = args?.template;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Blueprint.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

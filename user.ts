@@ -21,7 +21,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/user:User';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/user:User';
 
     /**
      * Returns true if the given object is an instance of User.  This is designed to work even
@@ -38,16 +38,16 @@ export class User extends pulumi.CustomResource {
      * `invitation_email` will be used to send an invitation to the specified email address. This property is required when
      * creating a new user. This property is optional when importing an existing user.
      */
-    public readonly invitationEmail!: pulumi.Output<string | undefined>;
+    declare public readonly invitationEmail: pulumi.Output<string | undefined>;
     /**
      * @deprecated Deprecated
      */
-    public readonly policies!: pulumi.Output<outputs.UserPolicy[] | undefined>;
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly policies: pulumi.Output<outputs.UserPolicy[] | undefined>;
+    declare public readonly userId: pulumi.Output<string>;
     /**
      * Username of the user
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -62,19 +62,19 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["invitationEmail"] = state ? state.invitationEmail : undefined;
-            resourceInputs["policies"] = state ? state.policies : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["invitationEmail"] = state?.invitationEmail;
+            resourceInputs["policies"] = state?.policies;
+            resourceInputs["userId"] = state?.userId;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["invitationEmail"] = args ? args.invitationEmail : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["invitationEmail"] = args?.invitationEmail;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["userId"] = args?.userId;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(User.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getAwsIntegration(args?: GetAwsIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getAwsIntegration:getAwsIntegration", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getAwsIntegration:getAwsIntegration", {
         "id": args.id,
         "integrationId": args.integrationId,
         "name": args.name,
@@ -43,7 +43,7 @@ export interface GetAwsIntegrationResult {
 export function getAwsIntegrationOutput(args?: GetAwsIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getAwsIntegration:getAwsIntegration", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getAwsIntegration:getAwsIntegration", {
         "id": args.id,
         "integrationId": args.integrationId,
         "name": args.name,

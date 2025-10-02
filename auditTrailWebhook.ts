@@ -19,7 +19,7 @@ export class AuditTrailWebhook extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/auditTrailWebhook:AuditTrailWebhook';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/auditTrailWebhook:AuditTrailWebhook';
 
     /**
      * Returns true if the given object is an instance of AuditTrailWebhook.  This is designed to work even
@@ -32,28 +32,28 @@ export class AuditTrailWebhook extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuditTrailWebhook.__pulumiType;
     }
 
-    public readonly auditTrailWebhookId!: pulumi.Output<string>;
+    declare public readonly auditTrailWebhookId: pulumi.Output<string>;
     /**
      * `custom_headers` is a Map of key-value strings, that will be passed as headers with audit trail requests.
      */
-    public readonly customHeaders!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly customHeaders: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * `enabled` determines whether the webhook is enabled. If it is not, Spacelift will not send any requests to the endpoint.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * `endpoint` is the URL to which Spacelift will send POST requests about audit events.
      */
-    public readonly endpoint!: pulumi.Output<string>;
+    declare public readonly endpoint: pulumi.Output<string>;
     /**
      * `include_runs` determines whether the webhook should include information about the run that triggered the event.
      */
-    public readonly includeRuns!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeRuns: pulumi.Output<boolean | undefined>;
     /**
      * `secret` is a secret that Spacelift will send with the request. Note that once it's created, it will be just an empty
      * string in the state due to security reasons.
      */
-    public readonly secret!: pulumi.Output<string>;
+    declare public readonly secret: pulumi.Output<string>;
 
     /**
      * Create a AuditTrailWebhook resource with the given unique name, arguments, and options.
@@ -68,28 +68,28 @@ export class AuditTrailWebhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuditTrailWebhookState | undefined;
-            resourceInputs["auditTrailWebhookId"] = state ? state.auditTrailWebhookId : undefined;
-            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["includeRuns"] = state ? state.includeRuns : undefined;
-            resourceInputs["secret"] = state ? state.secret : undefined;
+            resourceInputs["auditTrailWebhookId"] = state?.auditTrailWebhookId;
+            resourceInputs["customHeaders"] = state?.customHeaders;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["includeRuns"] = state?.includeRuns;
+            resourceInputs["secret"] = state?.secret;
         } else {
             const args = argsOrState as AuditTrailWebhookArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.endpoint === undefined) && !opts.urn) {
+            if (args?.endpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpoint'");
             }
-            if ((!args || args.secret === undefined) && !opts.urn) {
+            if (args?.secret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secret'");
             }
-            resourceInputs["auditTrailWebhookId"] = args ? args.auditTrailWebhookId : undefined;
-            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["includeRuns"] = args ? args.includeRuns : undefined;
+            resourceInputs["auditTrailWebhookId"] = args?.auditTrailWebhookId;
+            resourceInputs["customHeaders"] = args?.customHeaders;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["includeRuns"] = args?.includeRuns;
             resourceInputs["secret"] = args?.secret ? pulumi.secret(args.secret) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

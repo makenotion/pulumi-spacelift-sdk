@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getCurrentSpace(args?: GetCurrentSpaceArgs, opts?: pulumi.InvokeOptions): Promise<GetCurrentSpaceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getCurrentSpace:getCurrentSpace", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getCurrentSpace:getCurrentSpace", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -33,7 +33,7 @@ export interface GetCurrentSpaceResult {
 export function getCurrentSpaceOutput(args?: GetCurrentSpaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCurrentSpaceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getCurrentSpace:getCurrentSpace", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getCurrentSpace:getCurrentSpace", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

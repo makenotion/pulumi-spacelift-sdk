@@ -19,7 +19,7 @@ export class StackGcpServiceAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/stackGcpServiceAccount:StackGcpServiceAccount';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/stackGcpServiceAccount:StackGcpServiceAccount';
 
     /**
      * Returns true if the given object is an instance of StackGcpServiceAccount.  This is designed to work even
@@ -35,20 +35,20 @@ export class StackGcpServiceAccount extends pulumi.CustomResource {
     /**
      * ID of the module which uses GCP service account credentials
      */
-    public readonly moduleId!: pulumi.Output<string | undefined>;
+    declare public readonly moduleId: pulumi.Output<string | undefined>;
     /**
      * Email address of the GCP service account dedicated for this stack
      */
-    public /*out*/ readonly serviceAccountEmail!: pulumi.Output<string>;
-    public readonly stackGcpServiceAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceAccountEmail: pulumi.Output<string>;
+    declare public readonly stackGcpServiceAccountId: pulumi.Output<string>;
     /**
      * ID of the stack which uses GCP service account credentials
      */
-    public readonly stackId!: pulumi.Output<string | undefined>;
+    declare public readonly stackId: pulumi.Output<string | undefined>;
     /**
      * List of scopes that will be requested when generating temporary GCP service account credentials
      */
-    public readonly tokenScopes!: pulumi.Output<string[]>;
+    declare public readonly tokenScopes: pulumi.Output<string[]>;
 
     /**
      * Create a StackGcpServiceAccount resource with the given unique name, arguments, and options.
@@ -63,20 +63,20 @@ export class StackGcpServiceAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackGcpServiceAccountState | undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["serviceAccountEmail"] = state ? state.serviceAccountEmail : undefined;
-            resourceInputs["stackGcpServiceAccountId"] = state ? state.stackGcpServiceAccountId : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["tokenScopes"] = state ? state.tokenScopes : undefined;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["serviceAccountEmail"] = state?.serviceAccountEmail;
+            resourceInputs["stackGcpServiceAccountId"] = state?.stackGcpServiceAccountId;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["tokenScopes"] = state?.tokenScopes;
         } else {
             const args = argsOrState as StackGcpServiceAccountArgs | undefined;
-            if ((!args || args.tokenScopes === undefined) && !opts.urn) {
+            if (args?.tokenScopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tokenScopes'");
             }
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
-            resourceInputs["stackGcpServiceAccountId"] = args ? args.stackGcpServiceAccountId : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["tokenScopes"] = args ? args.tokenScopes : undefined;
+            resourceInputs["moduleId"] = args?.moduleId;
+            resourceInputs["stackGcpServiceAccountId"] = args?.stackGcpServiceAccountId;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["tokenScopes"] = args?.tokenScopes;
             resourceInputs["serviceAccountEmail"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -21,7 +21,7 @@ export class StackDestructor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/stackDestructor:StackDestructor';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/stackDestructor:StackDestructor';
 
     /**
      * Returns true if the given object is an instance of StackDestructor.  This is designed to work even
@@ -37,18 +37,18 @@ export class StackDestructor extends pulumi.CustomResource {
     /**
      * If set to true, destruction won't delete the stack
      */
-    public readonly deactivated!: pulumi.Output<boolean | undefined>;
+    declare public readonly deactivated: pulumi.Output<boolean | undefined>;
     /**
      * If set to true, destruction will also discard all runs on the stack that are eligible for discarding (e.g. not in
      * progress runs)
      */
-    public readonly discardRuns!: pulumi.Output<boolean | undefined>;
-    public readonly stackDestructorId!: pulumi.Output<string>;
+    declare public readonly discardRuns: pulumi.Output<boolean | undefined>;
+    declare public readonly stackDestructorId: pulumi.Output<string>;
     /**
      * ID of the stack to delete and destroy on destruction
      */
-    public readonly stackId!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.StackDestructorTimeouts | undefined>;
+    declare public readonly stackId: pulumi.Output<string>;
+    declare public readonly timeouts: pulumi.Output<outputs.StackDestructorTimeouts | undefined>;
 
     /**
      * Create a StackDestructor resource with the given unique name, arguments, and options.
@@ -63,21 +63,21 @@ export class StackDestructor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackDestructorState | undefined;
-            resourceInputs["deactivated"] = state ? state.deactivated : undefined;
-            resourceInputs["discardRuns"] = state ? state.discardRuns : undefined;
-            resourceInputs["stackDestructorId"] = state ? state.stackDestructorId : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
+            resourceInputs["deactivated"] = state?.deactivated;
+            resourceInputs["discardRuns"] = state?.discardRuns;
+            resourceInputs["stackDestructorId"] = state?.stackDestructorId;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as StackDestructorArgs | undefined;
-            if ((!args || args.stackId === undefined) && !opts.urn) {
+            if (args?.stackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["deactivated"] = args ? args.deactivated : undefined;
-            resourceInputs["discardRuns"] = args ? args.discardRuns : undefined;
-            resourceInputs["stackDestructorId"] = args ? args.stackDestructorId : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["deactivated"] = args?.deactivated;
+            resourceInputs["discardRuns"] = args?.discardRuns;
+            resourceInputs["stackDestructorId"] = args?.stackDestructorId;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["timeouts"] = args?.timeouts;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StackDestructor.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

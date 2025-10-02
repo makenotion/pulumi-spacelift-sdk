@@ -19,7 +19,7 @@ export class Space extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/space:Space';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/space:Space';
 
     /**
      * Returns true if the given object is an instance of Space.  This is designed to work even
@@ -35,24 +35,24 @@ export class Space extends pulumi.CustomResource {
     /**
      * free-form space description for users
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * indication whether access to this space inherits read access to entities from the parent space. Defaults to `false`.
      */
-    public readonly inheritEntities!: pulumi.Output<boolean | undefined>;
+    declare public readonly inheritEntities: pulumi.Output<boolean | undefined>;
     /**
      * list of labels describing a space
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * name of the space
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * immutable ID (slug) of parent space. Defaults to `root`.
      */
-    public readonly parentSpaceId!: pulumi.Output<string | undefined>;
-    public readonly spaceId!: pulumi.Output<string>;
+    declare public readonly parentSpaceId: pulumi.Output<string | undefined>;
+    declare public readonly spaceId: pulumi.Output<string>;
 
     /**
      * Create a Space resource with the given unique name, arguments, and options.
@@ -67,20 +67,20 @@ export class Space extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpaceState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["inheritEntities"] = state ? state.inheritEntities : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentSpaceId"] = state ? state.parentSpaceId : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["inheritEntities"] = state?.inheritEntities;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentSpaceId"] = state?.parentSpaceId;
+            resourceInputs["spaceId"] = state?.spaceId;
         } else {
             const args = argsOrState as SpaceArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["inheritEntities"] = args ? args.inheritEntities : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentSpaceId"] = args ? args.parentSpaceId : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["inheritEntities"] = args?.inheritEntities;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentSpaceId"] = args?.parentSpaceId;
+            resourceInputs["spaceId"] = args?.spaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Space.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

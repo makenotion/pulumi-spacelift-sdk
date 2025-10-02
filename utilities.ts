@@ -109,9 +109,9 @@ export async function getPackage() : Promise<string | undefined> {
 		if (_packageRef === undefined) {
 			const monitor = runtime.getMonitor();
 			const params = new resproto.Parameterization();
-			params.setName("spacelift");
+			params.setName("spacelift-terraform-provider");
 			params.setVersion("1.31.0");
-			params.setValue(Uint8Array.from(atob("eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL3NwYWNlbGlmdC1pby9zcGFjZWxpZnQiLCJ2ZXJzaW9uIjoiMS4zMS4wIn19"), c => c.charCodeAt(0)));
+			params.setValue(Uint8Array.from(atob("eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL3NwYWNlbGlmdC1pby9zcGFjZWxpZnQiLCJ2ZXJzaW9uIjoiMS4zMS4wIn0sInByb3ZpZGVyTmFtZSI6InNwYWNlbGlmdC10ZXJyYWZvcm0tcHJvdmlkZXIifQ=="), c => c.charCodeAt(0)));
 
 			const req = new resproto.RegisterPackageRequest();
 			req.setName("terraform-provider");

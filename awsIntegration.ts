@@ -19,7 +19,7 @@ export class AwsIntegration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/awsIntegration:AwsIntegration';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/awsIntegration:AwsIntegration';
 
     /**
      * Returns true if the given object is an instance of AwsIntegration.  This is designed to work even
@@ -32,39 +32,39 @@ export class AwsIntegration extends pulumi.CustomResource {
         return obj['__pulumiType'] === AwsIntegration.__pulumiType;
     }
 
-    public readonly awsIntegrationId!: pulumi.Output<string>;
+    declare public readonly awsIntegrationId: pulumi.Output<string>;
     /**
      * Duration in seconds for which the assumed role credentials should be valid. Defaults to `900`.
      */
-    public readonly durationSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly durationSeconds: pulumi.Output<number | undefined>;
     /**
      * Custom external ID (works only for private workers).
      */
-    public readonly externalId!: pulumi.Output<string | undefined>;
+    declare public readonly externalId: pulumi.Output<string | undefined>;
     /**
      * Generate AWS credentials in the private worker. Defaults to `false`.
      */
-    public readonly generateCredentialsInWorker!: pulumi.Output<boolean | undefined>;
+    declare public readonly generateCredentialsInWorker: pulumi.Output<boolean | undefined>;
     /**
      * Labels to set on the integration
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The friendly name of the integration
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * AWS region to select a regional AWS STS endpoint.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
     /**
      * ARN of the AWS IAM role to attach
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * ID (slug) of the space the integration is in
      */
-    public readonly spaceId!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
 
     /**
      * Create a AwsIntegration resource with the given unique name, arguments, and options.
@@ -79,29 +79,29 @@ export class AwsIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AwsIntegrationState | undefined;
-            resourceInputs["awsIntegrationId"] = state ? state.awsIntegrationId : undefined;
-            resourceInputs["durationSeconds"] = state ? state.durationSeconds : undefined;
-            resourceInputs["externalId"] = state ? state.externalId : undefined;
-            resourceInputs["generateCredentialsInWorker"] = state ? state.generateCredentialsInWorker : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
+            resourceInputs["awsIntegrationId"] = state?.awsIntegrationId;
+            resourceInputs["durationSeconds"] = state?.durationSeconds;
+            resourceInputs["externalId"] = state?.externalId;
+            resourceInputs["generateCredentialsInWorker"] = state?.generateCredentialsInWorker;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["spaceId"] = state?.spaceId;
         } else {
             const args = argsOrState as AwsIntegrationArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["awsIntegrationId"] = args ? args.awsIntegrationId : undefined;
-            resourceInputs["durationSeconds"] = args ? args.durationSeconds : undefined;
-            resourceInputs["externalId"] = args ? args.externalId : undefined;
-            resourceInputs["generateCredentialsInWorker"] = args ? args.generateCredentialsInWorker : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
+            resourceInputs["awsIntegrationId"] = args?.awsIntegrationId;
+            resourceInputs["durationSeconds"] = args?.durationSeconds;
+            resourceInputs["externalId"] = args?.externalId;
+            resourceInputs["generateCredentialsInWorker"] = args?.generateCredentialsInWorker;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["spaceId"] = args?.spaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AwsIntegration.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

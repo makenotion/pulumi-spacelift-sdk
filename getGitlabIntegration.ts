@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getGitlabIntegration(args?: GetGitlabIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetGitlabIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getGitlabIntegration:getGitlabIntegration", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getGitlabIntegration:getGitlabIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -38,7 +38,7 @@ export interface GetGitlabIntegrationResult {
 export function getGitlabIntegrationOutput(args?: GetGitlabIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGitlabIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getGitlabIntegration:getGitlabIntegration", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getGitlabIntegration:getGitlabIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

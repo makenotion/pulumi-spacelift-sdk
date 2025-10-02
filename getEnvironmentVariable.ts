@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getEnvironmentVariable(args: GetEnvironmentVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getEnvironmentVariable:getEnvironmentVariable", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getEnvironmentVariable:getEnvironmentVariable", {
         "contextId": args.contextId,
         "id": args.id,
         "moduleId": args.moduleId,
@@ -42,7 +42,7 @@ export interface GetEnvironmentVariableResult {
 }
 export function getEnvironmentVariableOutput(args: GetEnvironmentVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getEnvironmentVariable:getEnvironmentVariable", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getEnvironmentVariable:getEnvironmentVariable", {
         "contextId": args.contextId,
         "id": args.id,
         "moduleId": args.moduleId,

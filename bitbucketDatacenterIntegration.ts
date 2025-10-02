@@ -19,7 +19,7 @@ export class BitbucketDatacenterIntegration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/bitbucketDatacenterIntegration:BitbucketDatacenterIntegration';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/bitbucketDatacenterIntegration:BitbucketDatacenterIntegration';
 
     /**
      * Returns true if the given object is an instance of BitbucketDatacenterIntegration.  This is designed to work even
@@ -35,57 +35,57 @@ export class BitbucketDatacenterIntegration extends pulumi.CustomResource {
     /**
      * User access token from Bitbucket
      */
-    public readonly accessToken!: pulumi.Output<string>;
+    declare public readonly accessToken: pulumi.Output<string>;
     /**
      * The API host where requests will be sent
      */
-    public readonly apiHost!: pulumi.Output<string>;
+    declare public readonly apiHost: pulumi.Output<string>;
     /**
      * Bitbucket Datacenter integration description
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Bitbucket Datacenter integration is default.
      */
-    public readonly isDefault!: pulumi.Output<boolean>;
+    declare public readonly isDefault: pulumi.Output<boolean>;
     /**
      * Bitbucket Datacenter integration labels
      */
-    public readonly labels!: pulumi.Output<string[]>;
+    declare public readonly labels: pulumi.Output<string[]>;
     /**
      * Bitbucket Datacenter integration name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Bitbucket Datacenter integration space id. Defaults to `root`.
      */
-    public readonly spaceId!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
     /**
      * Indicates whether the integration should use git checkout. If false source code will be downloaded using the VCS API.
      * Defaults to false.
      */
-    public readonly useGitCheckout!: pulumi.Output<boolean>;
+    declare public readonly useGitCheckout: pulumi.Output<boolean>;
     /**
      * User Facing Host which will be used for all user-facing URLs displayed in the Spacelift UI
      */
-    public readonly userFacingHost!: pulumi.Output<string>;
+    declare public readonly userFacingHost: pulumi.Output<string>;
     /**
      * Username which will be used to authenticate requests for cloning repositories
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
     /**
      * VCS checks configured for Bitbucket Datacenter repositories. Possible values: INDIVIDUAL, AGGREGATED, ALL. Defaults to
      * INDIVIDUAL.
      */
-    public readonly vcsChecks!: pulumi.Output<string | undefined>;
+    declare public readonly vcsChecks: pulumi.Output<string | undefined>;
     /**
      * Secret for webhooks originating from Bitbucket repositories
      */
-    public /*out*/ readonly webhookSecret!: pulumi.Output<string>;
+    declare public /*out*/ readonly webhookSecret: pulumi.Output<string>;
     /**
      * URL for webhooks originating from Bitbucket repositories
      */
-    public /*out*/ readonly webhookUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly webhookUrl: pulumi.Output<string>;
 
     /**
      * Create a BitbucketDatacenterIntegration resource with the given unique name, arguments, and options.
@@ -100,47 +100,47 @@ export class BitbucketDatacenterIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BitbucketDatacenterIntegrationState | undefined;
-            resourceInputs["accessToken"] = state ? state.accessToken : undefined;
-            resourceInputs["apiHost"] = state ? state.apiHost : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
-            resourceInputs["useGitCheckout"] = state ? state.useGitCheckout : undefined;
-            resourceInputs["userFacingHost"] = state ? state.userFacingHost : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
-            resourceInputs["vcsChecks"] = state ? state.vcsChecks : undefined;
-            resourceInputs["webhookSecret"] = state ? state.webhookSecret : undefined;
-            resourceInputs["webhookUrl"] = state ? state.webhookUrl : undefined;
+            resourceInputs["accessToken"] = state?.accessToken;
+            resourceInputs["apiHost"] = state?.apiHost;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["spaceId"] = state?.spaceId;
+            resourceInputs["useGitCheckout"] = state?.useGitCheckout;
+            resourceInputs["userFacingHost"] = state?.userFacingHost;
+            resourceInputs["username"] = state?.username;
+            resourceInputs["vcsChecks"] = state?.vcsChecks;
+            resourceInputs["webhookSecret"] = state?.webhookSecret;
+            resourceInputs["webhookUrl"] = state?.webhookUrl;
         } else {
             const args = argsOrState as BitbucketDatacenterIntegrationArgs | undefined;
-            if ((!args || args.accessToken === undefined) && !opts.urn) {
+            if (args?.accessToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessToken'");
             }
-            if ((!args || args.apiHost === undefined) && !opts.urn) {
+            if (args?.apiHost === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiHost'");
             }
-            if ((!args || args.isDefault === undefined) && !opts.urn) {
+            if (args?.isDefault === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isDefault'");
             }
-            if ((!args || args.userFacingHost === undefined) && !opts.urn) {
+            if (args?.userFacingHost === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userFacingHost'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
-            resourceInputs["apiHost"] = args ? args.apiHost : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isDefault"] = args ? args.isDefault : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
-            resourceInputs["useGitCheckout"] = args ? args.useGitCheckout : undefined;
-            resourceInputs["userFacingHost"] = args ? args.userFacingHost : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["vcsChecks"] = args ? args.vcsChecks : undefined;
+            resourceInputs["apiHost"] = args?.apiHost;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isDefault"] = args?.isDefault;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["spaceId"] = args?.spaceId;
+            resourceInputs["useGitCheckout"] = args?.useGitCheckout;
+            resourceInputs["userFacingHost"] = args?.userFacingHost;
+            resourceInputs["username"] = args?.username;
+            resourceInputs["vcsChecks"] = args?.vcsChecks;
             resourceInputs["webhookSecret"] = undefined /*out*/;
             resourceInputs["webhookUrl"] = undefined /*out*/;
         }

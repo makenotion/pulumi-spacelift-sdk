@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 export function getWorkerPools(args?: GetWorkerPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkerPoolsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getWorkerPools:getWorkerPools", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getWorkerPools:getWorkerPools", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -31,7 +31,7 @@ export interface GetWorkerPoolsResult {
 export function getWorkerPoolsOutput(args?: GetWorkerPoolsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkerPoolsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getWorkerPools:getWorkerPools", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getWorkerPools:getWorkerPools", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

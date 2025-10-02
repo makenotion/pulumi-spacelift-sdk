@@ -21,7 +21,7 @@ export class IdpGroupMapping extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/idpGroupMapping:IdpGroupMapping';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/idpGroupMapping:IdpGroupMapping';
 
     /**
      * Returns true if the given object is an instance of IdpGroupMapping.  This is designed to work even
@@ -37,18 +37,18 @@ export class IdpGroupMapping extends pulumi.CustomResource {
     /**
      * Description of the IdP group mapping
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly idpGroupMappingId!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly idpGroupMappingId: pulumi.Output<string>;
     /**
      * Name of the IdP group as defined in the SSO provider - should be unique per account
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of access rules for the IdP group.
      *
      * @deprecated Deprecated
      */
-    public readonly policies!: pulumi.Output<outputs.IdpGroupMappingPolicy[] | undefined>;
+    declare public readonly policies: pulumi.Output<outputs.IdpGroupMappingPolicy[] | undefined>;
 
     /**
      * Create a IdpGroupMapping resource with the given unique name, arguments, and options.
@@ -63,16 +63,16 @@ export class IdpGroupMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdpGroupMappingState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["idpGroupMappingId"] = state ? state.idpGroupMappingId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policies"] = state ? state.policies : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["idpGroupMappingId"] = state?.idpGroupMappingId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policies"] = state?.policies;
         } else {
             const args = argsOrState as IdpGroupMappingArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idpGroupMappingId"] = args ? args.idpGroupMappingId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idpGroupMappingId"] = args?.idpGroupMappingId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policies"] = args?.policies;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdpGroupMapping.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

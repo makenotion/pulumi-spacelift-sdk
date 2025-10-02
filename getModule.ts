@@ -8,7 +8,7 @@ import * as utilities from "./utilities";
 
 export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getModule:getModule", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getModule:getModule", {
         "gitSparseCheckoutPaths": args.gitSparseCheckoutPaths,
         "id": args.id,
         "moduleId": args.moduleId,
@@ -56,7 +56,7 @@ export interface GetModuleResult {
 }
 export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getModule:getModule", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getModule:getModule", {
         "gitSparseCheckoutPaths": args.gitSparseCheckoutPaths,
         "id": args.id,
         "moduleId": args.moduleId,

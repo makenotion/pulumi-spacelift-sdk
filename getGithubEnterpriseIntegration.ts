@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getGithubEnterpriseIntegration(args?: GetGithubEnterpriseIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetGithubEnterpriseIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getGithubEnterpriseIntegration:getGithubEnterpriseIntegration", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getGithubEnterpriseIntegration:getGithubEnterpriseIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -39,7 +39,7 @@ export interface GetGithubEnterpriseIntegrationResult {
 export function getGithubEnterpriseIntegrationOutput(args?: GetGithubEnterpriseIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGithubEnterpriseIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getGithubEnterpriseIntegration:getGithubEnterpriseIntegration", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getGithubEnterpriseIntegration:getGithubEnterpriseIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

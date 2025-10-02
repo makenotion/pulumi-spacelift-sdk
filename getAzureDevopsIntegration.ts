@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getAzureDevopsIntegration(args?: GetAzureDevopsIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureDevopsIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getAzureDevopsIntegration:getAzureDevopsIntegration", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getAzureDevopsIntegration:getAzureDevopsIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -38,7 +38,7 @@ export interface GetAzureDevopsIntegrationResult {
 export function getAzureDevopsIntegrationOutput(args?: GetAzureDevopsIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureDevopsIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getAzureDevopsIntegration:getAzureDevopsIntegration", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getAzureDevopsIntegration:getAzureDevopsIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

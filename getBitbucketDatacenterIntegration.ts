@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getBitbucketDatacenterIntegration(args?: GetBitbucketDatacenterIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetBitbucketDatacenterIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getBitbucketDatacenterIntegration:getBitbucketDatacenterIntegration", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getBitbucketDatacenterIntegration:getBitbucketDatacenterIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -40,7 +40,7 @@ export interface GetBitbucketDatacenterIntegrationResult {
 export function getBitbucketDatacenterIntegrationOutput(args?: GetBitbucketDatacenterIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBitbucketDatacenterIntegrationResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getBitbucketDatacenterIntegration:getBitbucketDatacenterIntegration", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getBitbucketDatacenterIntegration:getBitbucketDatacenterIntegration", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

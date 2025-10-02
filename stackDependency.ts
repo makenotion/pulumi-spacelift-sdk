@@ -19,7 +19,7 @@ export class StackDependency extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/stackDependency:StackDependency';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/stackDependency:StackDependency';
 
     /**
      * Returns true if the given object is an instance of StackDependency.  This is designed to work even
@@ -35,12 +35,12 @@ export class StackDependency extends pulumi.CustomResource {
     /**
      * immutable ID (slug) of stack to depend on.
      */
-    public readonly dependsOnStackId!: pulumi.Output<string>;
-    public readonly stackDependencyId!: pulumi.Output<string>;
+    declare public readonly dependsOnStackId: pulumi.Output<string>;
+    declare public readonly stackDependencyId: pulumi.Output<string>;
     /**
      * immutable ID (slug) of stack which has a dependency.
      */
-    public readonly stackId!: pulumi.Output<string>;
+    declare public readonly stackId: pulumi.Output<string>;
 
     /**
      * Create a StackDependency resource with the given unique name, arguments, and options.
@@ -55,20 +55,20 @@ export class StackDependency extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackDependencyState | undefined;
-            resourceInputs["dependsOnStackId"] = state ? state.dependsOnStackId : undefined;
-            resourceInputs["stackDependencyId"] = state ? state.stackDependencyId : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["dependsOnStackId"] = state?.dependsOnStackId;
+            resourceInputs["stackDependencyId"] = state?.stackDependencyId;
+            resourceInputs["stackId"] = state?.stackId;
         } else {
             const args = argsOrState as StackDependencyArgs | undefined;
-            if ((!args || args.dependsOnStackId === undefined) && !opts.urn) {
+            if (args?.dependsOnStackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dependsOnStackId'");
             }
-            if ((!args || args.stackId === undefined) && !opts.urn) {
+            if (args?.stackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["dependsOnStackId"] = args ? args.dependsOnStackId : undefined;
-            resourceInputs["stackDependencyId"] = args ? args.stackDependencyId : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["dependsOnStackId"] = args?.dependsOnStackId;
+            resourceInputs["stackDependencyId"] = args?.stackDependencyId;
+            resourceInputs["stackId"] = args?.stackId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StackDependency.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

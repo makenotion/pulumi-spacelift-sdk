@@ -19,7 +19,7 @@ export class Context extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/context:Context';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/context:Context';
 
     /**
      * Returns true if the given object is an instance of Context.  This is designed to work even
@@ -35,65 +35,65 @@ export class Context extends pulumi.CustomResource {
     /**
      * List of after-apply scripts
      */
-    public readonly afterApplies!: pulumi.Output<string[] | undefined>;
+    declare public readonly afterApplies: pulumi.Output<string[] | undefined>;
     /**
      * List of after-destroy scripts
      */
-    public readonly afterDestroys!: pulumi.Output<string[] | undefined>;
+    declare public readonly afterDestroys: pulumi.Output<string[] | undefined>;
     /**
      * List of after-init scripts
      */
-    public readonly afterInits!: pulumi.Output<string[] | undefined>;
+    declare public readonly afterInits: pulumi.Output<string[] | undefined>;
     /**
      * List of after-perform scripts
      */
-    public readonly afterPerforms!: pulumi.Output<string[] | undefined>;
+    declare public readonly afterPerforms: pulumi.Output<string[] | undefined>;
     /**
      * List of after-plan scripts
      */
-    public readonly afterPlans!: pulumi.Output<string[] | undefined>;
+    declare public readonly afterPlans: pulumi.Output<string[] | undefined>;
     /**
      * List of after-run scripts
      */
-    public readonly afterRuns!: pulumi.Output<string[] | undefined>;
+    declare public readonly afterRuns: pulumi.Output<string[] | undefined>;
     /**
      * List of before-apply scripts
      */
-    public readonly beforeApplies!: pulumi.Output<string[] | undefined>;
+    declare public readonly beforeApplies: pulumi.Output<string[] | undefined>;
     /**
      * List of before-destroy scripts
      */
-    public readonly beforeDestroys!: pulumi.Output<string[] | undefined>;
+    declare public readonly beforeDestroys: pulumi.Output<string[] | undefined>;
     /**
      * List of before-init scripts
      */
-    public readonly beforeInits!: pulumi.Output<string[] | undefined>;
+    declare public readonly beforeInits: pulumi.Output<string[] | undefined>;
     /**
      * List of before-perform scripts
      */
-    public readonly beforePerforms!: pulumi.Output<string[] | undefined>;
+    declare public readonly beforePerforms: pulumi.Output<string[] | undefined>;
     /**
      * List of before-plan scripts
      */
-    public readonly beforePlans!: pulumi.Output<string[] | undefined>;
-    public readonly contextId!: pulumi.Output<string>;
+    declare public readonly beforePlans: pulumi.Output<string[] | undefined>;
+    declare public readonly contextId: pulumi.Output<string>;
     /**
      * Free-form context description for users
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The labels of the context. To leverage the `autoattach` magic label, ensure your label follows the naming convention:
      * `autoattach:<your-label-name>`
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * Name of the context - should be unique in one account
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ID (slug) of the space the context is in
      */
-    public readonly spaceId!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
 
     /**
      * Create a Context resource with the given unique name, arguments, and options.
@@ -108,40 +108,40 @@ export class Context extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContextState | undefined;
-            resourceInputs["afterApplies"] = state ? state.afterApplies : undefined;
-            resourceInputs["afterDestroys"] = state ? state.afterDestroys : undefined;
-            resourceInputs["afterInits"] = state ? state.afterInits : undefined;
-            resourceInputs["afterPerforms"] = state ? state.afterPerforms : undefined;
-            resourceInputs["afterPlans"] = state ? state.afterPlans : undefined;
-            resourceInputs["afterRuns"] = state ? state.afterRuns : undefined;
-            resourceInputs["beforeApplies"] = state ? state.beforeApplies : undefined;
-            resourceInputs["beforeDestroys"] = state ? state.beforeDestroys : undefined;
-            resourceInputs["beforeInits"] = state ? state.beforeInits : undefined;
-            resourceInputs["beforePerforms"] = state ? state.beforePerforms : undefined;
-            resourceInputs["beforePlans"] = state ? state.beforePlans : undefined;
-            resourceInputs["contextId"] = state ? state.contextId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
+            resourceInputs["afterApplies"] = state?.afterApplies;
+            resourceInputs["afterDestroys"] = state?.afterDestroys;
+            resourceInputs["afterInits"] = state?.afterInits;
+            resourceInputs["afterPerforms"] = state?.afterPerforms;
+            resourceInputs["afterPlans"] = state?.afterPlans;
+            resourceInputs["afterRuns"] = state?.afterRuns;
+            resourceInputs["beforeApplies"] = state?.beforeApplies;
+            resourceInputs["beforeDestroys"] = state?.beforeDestroys;
+            resourceInputs["beforeInits"] = state?.beforeInits;
+            resourceInputs["beforePerforms"] = state?.beforePerforms;
+            resourceInputs["beforePlans"] = state?.beforePlans;
+            resourceInputs["contextId"] = state?.contextId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["spaceId"] = state?.spaceId;
         } else {
             const args = argsOrState as ContextArgs | undefined;
-            resourceInputs["afterApplies"] = args ? args.afterApplies : undefined;
-            resourceInputs["afterDestroys"] = args ? args.afterDestroys : undefined;
-            resourceInputs["afterInits"] = args ? args.afterInits : undefined;
-            resourceInputs["afterPerforms"] = args ? args.afterPerforms : undefined;
-            resourceInputs["afterPlans"] = args ? args.afterPlans : undefined;
-            resourceInputs["afterRuns"] = args ? args.afterRuns : undefined;
-            resourceInputs["beforeApplies"] = args ? args.beforeApplies : undefined;
-            resourceInputs["beforeDestroys"] = args ? args.beforeDestroys : undefined;
-            resourceInputs["beforeInits"] = args ? args.beforeInits : undefined;
-            resourceInputs["beforePerforms"] = args ? args.beforePerforms : undefined;
-            resourceInputs["beforePlans"] = args ? args.beforePlans : undefined;
-            resourceInputs["contextId"] = args ? args.contextId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
+            resourceInputs["afterApplies"] = args?.afterApplies;
+            resourceInputs["afterDestroys"] = args?.afterDestroys;
+            resourceInputs["afterInits"] = args?.afterInits;
+            resourceInputs["afterPerforms"] = args?.afterPerforms;
+            resourceInputs["afterPlans"] = args?.afterPlans;
+            resourceInputs["afterRuns"] = args?.afterRuns;
+            resourceInputs["beforeApplies"] = args?.beforeApplies;
+            resourceInputs["beforeDestroys"] = args?.beforeDestroys;
+            resourceInputs["beforeInits"] = args?.beforeInits;
+            resourceInputs["beforePerforms"] = args?.beforePerforms;
+            resourceInputs["beforePlans"] = args?.beforePlans;
+            resourceInputs["contextId"] = args?.contextId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["spaceId"] = args?.spaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Context.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

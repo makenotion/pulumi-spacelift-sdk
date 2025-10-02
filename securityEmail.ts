@@ -19,7 +19,7 @@ export class SecurityEmail extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/securityEmail:SecurityEmail';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/securityEmail:SecurityEmail';
 
     /**
      * Returns true if the given object is an instance of SecurityEmail.  This is designed to work even
@@ -35,8 +35,8 @@ export class SecurityEmail extends pulumi.CustomResource {
     /**
      * Email address to which the security notifications are sent
      */
-    public readonly email!: pulumi.Output<string>;
-    public readonly securityEmailId!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
+    declare public readonly securityEmailId: pulumi.Output<string>;
 
     /**
      * Create a SecurityEmail resource with the given unique name, arguments, and options.
@@ -51,15 +51,15 @@ export class SecurityEmail extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityEmailState | undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["securityEmailId"] = state ? state.securityEmailId : undefined;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["securityEmailId"] = state?.securityEmailId;
         } else {
             const args = argsOrState as SecurityEmailArgs | undefined;
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["securityEmailId"] = args ? args.securityEmailId : undefined;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["securityEmailId"] = args?.securityEmailId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityEmail.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

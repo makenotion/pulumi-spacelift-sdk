@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getContext(args: GetContextArgs, opts?: pulumi.InvokeOptions): Promise<GetContextResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getContext:getContext", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getContext:getContext", {
         "afterApplies": args.afterApplies,
         "afterDestroys": args.afterDestroys,
         "afterInits": args.afterInits,
@@ -66,7 +66,7 @@ export interface GetContextResult {
 }
 export function getContextOutput(args: GetContextOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContextResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getContext:getContext", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getContext:getContext", {
         "afterApplies": args.afterApplies,
         "afterDestroys": args.afterDestroys,
         "afterInits": args.afterInits,

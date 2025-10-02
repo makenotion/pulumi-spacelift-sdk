@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getMountedFile(args: GetMountedFileArgs, opts?: pulumi.InvokeOptions): Promise<GetMountedFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getMountedFile:getMountedFile", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getMountedFile:getMountedFile", {
         "contextId": args.contextId,
         "id": args.id,
         "moduleId": args.moduleId,
@@ -41,7 +41,7 @@ export interface GetMountedFileResult {
 }
 export function getMountedFileOutput(args: GetMountedFileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMountedFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getMountedFile:getMountedFile", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getMountedFile:getMountedFile", {
         "contextId": args.contextId,
         "id": args.id,
         "moduleId": args.moduleId,

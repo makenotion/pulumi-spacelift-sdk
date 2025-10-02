@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 export function getSpaces(args?: GetSpacesArgs, opts?: pulumi.InvokeOptions): Promise<GetSpacesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getSpaces:getSpaces", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getSpaces:getSpaces", {
         "id": args.id,
         "labels": args.labels,
     }, opts, utilities.getPackage());
@@ -34,7 +34,7 @@ export interface GetSpacesResult {
 export function getSpacesOutput(args?: GetSpacesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpacesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getSpaces:getSpaces", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getSpaces:getSpaces", {
         "id": args.id,
         "labels": args.labels,
     }, opts, utilities.getPackage());

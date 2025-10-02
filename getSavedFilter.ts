@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getSavedFilter(args: GetSavedFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getSavedFilter:getSavedFilter", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getSavedFilter:getSavedFilter", {
         "filterId": args.filterId,
     }, opts, utilities.getPackage());
 }
@@ -32,7 +32,7 @@ export interface GetSavedFilterResult {
 }
 export function getSavedFilterOutput(args: GetSavedFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSavedFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getSavedFilter:getSavedFilter", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getSavedFilter:getSavedFilter", {
         "filterId": args.filterId,
     }, opts, utilities.getPackage());
 }

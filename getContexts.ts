@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 export function getContexts(args?: GetContextsArgs, opts?: pulumi.InvokeOptions): Promise<GetContextsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getContexts:getContexts", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getContexts:getContexts", {
         "id": args.id,
         "labels": args.labels,
     }, opts, utilities.getPackage());
@@ -34,7 +34,7 @@ export interface GetContextsResult {
 export function getContextsOutput(args?: GetContextsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContextsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getContexts:getContexts", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getContexts:getContexts", {
         "id": args.id,
         "labels": args.labels,
     }, opts, utilities.getPackage());

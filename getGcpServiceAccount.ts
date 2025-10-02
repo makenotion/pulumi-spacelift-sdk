@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getGcpServiceAccount(args?: GetGcpServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetGcpServiceAccountResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getGcpServiceAccount:getGcpServiceAccount", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getGcpServiceAccount:getGcpServiceAccount", {
         "id": args.id,
         "moduleId": args.moduleId,
         "stackId": args.stackId,
@@ -36,7 +36,7 @@ export interface GetGcpServiceAccountResult {
 export function getGcpServiceAccountOutput(args?: GetGcpServiceAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGcpServiceAccountResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getGcpServiceAccount:getGcpServiceAccount", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getGcpServiceAccount:getGcpServiceAccount", {
         "id": args.id,
         "moduleId": args.moduleId,
         "stackId": args.stackId,

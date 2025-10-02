@@ -8,7 +8,7 @@ import * as utilities from "./utilities";
 
 export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getStack:getStack", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getStack:getStack", {
         "additionalProjectGlobs": args.additionalProjectGlobs,
         "afterApplies": args.afterApplies,
         "afterDestroys": args.afterDestroys,
@@ -105,7 +105,7 @@ export interface GetStackResult {
 }
 export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getStack:getStack", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getStack:getStack", {
         "additionalProjectGlobs": args.additionalProjectGlobs,
         "afterApplies": args.afterApplies,
         "afterDestroys": args.afterDestroys,

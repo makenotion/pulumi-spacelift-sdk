@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getCurrentStack(args?: GetCurrentStackArgs, opts?: pulumi.InvokeOptions): Promise<GetCurrentStackResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getCurrentStack:getCurrentStack", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getCurrentStack:getCurrentStack", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -28,7 +28,7 @@ export interface GetCurrentStackResult {
 export function getCurrentStackOutput(args?: GetCurrentStackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCurrentStackResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getCurrentStack:getCurrentStack", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getCurrentStack:getCurrentStack", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }

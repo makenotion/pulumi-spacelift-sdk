@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getWorkerPool(args: GetWorkerPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkerPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getWorkerPool:getWorkerPool", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getWorkerPool:getWorkerPool", {
         "id": args.id,
         "workerPoolId": args.workerPoolId,
     }, opts, utilities.getPackage());
@@ -35,7 +35,7 @@ export interface GetWorkerPoolResult {
 }
 export function getWorkerPoolOutput(args: GetWorkerPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkerPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getWorkerPool:getWorkerPool", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getWorkerPool:getWorkerPool", {
         "id": args.id,
         "workerPoolId": args.workerPoolId,
     }, opts, utilities.getPackage());

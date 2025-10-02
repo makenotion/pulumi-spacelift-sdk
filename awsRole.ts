@@ -19,7 +19,7 @@ export class AwsRole extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/awsRole:AwsRole';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/awsRole:AwsRole';
 
     /**
      * Returns true if the given object is an instance of AwsRole.  This is designed to work even
@@ -32,35 +32,35 @@ export class AwsRole extends pulumi.CustomResource {
         return obj['__pulumiType'] === AwsRole.__pulumiType;
     }
 
-    public readonly awsRoleId!: pulumi.Output<string>;
+    declare public readonly awsRoleId: pulumi.Output<string>;
     /**
      * AWS IAM role session duration in seconds
      */
-    public readonly durationSeconds!: pulumi.Output<number>;
+    declare public readonly durationSeconds: pulumi.Output<number>;
     /**
      * Custom external ID (works only for private workers).
      */
-    public readonly externalId!: pulumi.Output<string | undefined>;
+    declare public readonly externalId: pulumi.Output<string | undefined>;
     /**
      * Generate AWS credentials in the private worker. Defaults to `false`.
      */
-    public readonly generateCredentialsInWorker!: pulumi.Output<boolean | undefined>;
+    declare public readonly generateCredentialsInWorker: pulumi.Output<boolean | undefined>;
     /**
      * ID of the module which assumes the AWS IAM role
      */
-    public readonly moduleId!: pulumi.Output<string | undefined>;
+    declare public readonly moduleId: pulumi.Output<string | undefined>;
     /**
      * AWS region to select a regional AWS STS endpoint.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
     /**
      * ARN of the AWS IAM role to attach
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * ID of the stack which assumes the AWS IAM role
      */
-    public readonly stackId!: pulumi.Output<string | undefined>;
+    declare public readonly stackId: pulumi.Output<string | undefined>;
 
     /**
      * Create a AwsRole resource with the given unique name, arguments, and options.
@@ -75,27 +75,27 @@ export class AwsRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AwsRoleState | undefined;
-            resourceInputs["awsRoleId"] = state ? state.awsRoleId : undefined;
-            resourceInputs["durationSeconds"] = state ? state.durationSeconds : undefined;
-            resourceInputs["externalId"] = state ? state.externalId : undefined;
-            resourceInputs["generateCredentialsInWorker"] = state ? state.generateCredentialsInWorker : undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["awsRoleId"] = state?.awsRoleId;
+            resourceInputs["durationSeconds"] = state?.durationSeconds;
+            resourceInputs["externalId"] = state?.externalId;
+            resourceInputs["generateCredentialsInWorker"] = state?.generateCredentialsInWorker;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["roleArn"] = state?.roleArn;
+            resourceInputs["stackId"] = state?.stackId;
         } else {
             const args = argsOrState as AwsRoleArgs | undefined;
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["awsRoleId"] = args ? args.awsRoleId : undefined;
-            resourceInputs["durationSeconds"] = args ? args.durationSeconds : undefined;
-            resourceInputs["externalId"] = args ? args.externalId : undefined;
-            resourceInputs["generateCredentialsInWorker"] = args ? args.generateCredentialsInWorker : undefined;
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["awsRoleId"] = args?.awsRoleId;
+            resourceInputs["durationSeconds"] = args?.durationSeconds;
+            resourceInputs["externalId"] = args?.externalId;
+            resourceInputs["generateCredentialsInWorker"] = args?.generateCredentialsInWorker;
+            resourceInputs["moduleId"] = args?.moduleId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stackId"] = args?.stackId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AwsRole.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

@@ -19,7 +19,7 @@ export class TerraformProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/terraformProvider:TerraformProvider';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/terraformProvider:TerraformProvider';
 
     /**
      * Returns true if the given object is an instance of TerraformProvider.  This is designed to work even
@@ -35,21 +35,21 @@ export class TerraformProvider extends pulumi.CustomResource {
     /**
      * Free-form description for human users, supports Markdown
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * Whether the provider is public or not, defaults to false (private)
      */
-    public readonly public!: pulumi.Output<boolean | undefined>;
+    declare public readonly public: pulumi.Output<boolean | undefined>;
     /**
      * ID (slug) of the space the provider is in
      */
-    public readonly spaceId!: pulumi.Output<string>;
-    public readonly terraformProviderId!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
+    declare public readonly terraformProviderId: pulumi.Output<string>;
     /**
      * Type of the provider - should be unique in one account
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a TerraformProvider resource with the given unique name, arguments, and options.
@@ -64,26 +64,26 @@ export class TerraformProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TerraformProviderState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["public"] = state ? state.public : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
-            resourceInputs["terraformProviderId"] = state ? state.terraformProviderId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["public"] = state?.public;
+            resourceInputs["spaceId"] = state?.spaceId;
+            resourceInputs["terraformProviderId"] = state?.terraformProviderId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as TerraformProviderArgs | undefined;
-            if ((!args || args.spaceId === undefined) && !opts.urn) {
+            if (args?.spaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spaceId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["public"] = args ? args.public : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
-            resourceInputs["terraformProviderId"] = args ? args.terraformProviderId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["public"] = args?.public;
+            resourceInputs["spaceId"] = args?.spaceId;
+            resourceInputs["terraformProviderId"] = args?.terraformProviderId;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TerraformProvider.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

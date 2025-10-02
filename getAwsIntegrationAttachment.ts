@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getAwsIntegrationAttachment(args: GetAwsIntegrationAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsIntegrationAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getAwsIntegrationAttachment:getAwsIntegrationAttachment", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getAwsIntegrationAttachment:getAwsIntegrationAttachment", {
         "id": args.id,
         "integrationId": args.integrationId,
         "moduleId": args.moduleId,
@@ -38,7 +38,7 @@ export interface GetAwsIntegrationAttachmentResult {
 }
 export function getAwsIntegrationAttachmentOutput(args: GetAwsIntegrationAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsIntegrationAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getAwsIntegrationAttachment:getAwsIntegrationAttachment", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getAwsIntegrationAttachment:getAwsIntegrationAttachment", {
         "id": args.id,
         "integrationId": args.integrationId,
         "moduleId": args.moduleId,

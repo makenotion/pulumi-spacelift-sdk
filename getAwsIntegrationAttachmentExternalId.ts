@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export function getAwsIntegrationAttachmentExternalId(args: GetAwsIntegrationAttachmentExternalIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsIntegrationAttachmentExternalIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getAwsIntegrationAttachmentExternalId:getAwsIntegrationAttachmentExternalId", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getAwsIntegrationAttachmentExternalId:getAwsIntegrationAttachmentExternalId", {
         "id": args.id,
         "integrationId": args.integrationId,
         "moduleId": args.moduleId,
@@ -43,7 +43,7 @@ export interface GetAwsIntegrationAttachmentExternalIdResult {
 }
 export function getAwsIntegrationAttachmentExternalIdOutput(args: GetAwsIntegrationAttachmentExternalIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsIntegrationAttachmentExternalIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getAwsIntegrationAttachmentExternalId:getAwsIntegrationAttachmentExternalId", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getAwsIntegrationAttachmentExternalId:getAwsIntegrationAttachmentExternalId", {
         "id": args.id,
         "integrationId": args.integrationId,
         "moduleId": args.moduleId,

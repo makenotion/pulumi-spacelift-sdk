@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getAwsRole(args?: GetAwsRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsRoleResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getAwsRole:getAwsRole", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getAwsRole:getAwsRole", {
         "id": args.id,
         "moduleId": args.moduleId,
         "stackId": args.stackId,
@@ -39,7 +39,7 @@ export interface GetAwsRoleResult {
 export function getAwsRoleOutput(args?: GetAwsRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsRoleResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getAwsRole:getAwsRole", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getAwsRole:getAwsRole", {
         "id": args.id,
         "moduleId": args.moduleId,
         "stackId": args.stackId,

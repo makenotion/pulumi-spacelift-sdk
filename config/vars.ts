@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 declare var exports: any;
-const __config = new pulumi.Config("spacelift");
+const __config = new pulumi.Config("spacelift-terraform-provider");
 
 /**
  * Endpoint to use when authenticating with an API key outside of Spacelift

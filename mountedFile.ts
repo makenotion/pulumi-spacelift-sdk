@@ -19,7 +19,7 @@ export class MountedFile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/mountedFile:MountedFile';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/mountedFile:MountedFile';
 
     /**
      * Returns true if the given object is an instance of MountedFile.  This is designed to work even
@@ -35,36 +35,36 @@ export class MountedFile extends pulumi.CustomResource {
     /**
      * SHA-256 checksum of the value
      */
-    public /*out*/ readonly checksum!: pulumi.Output<string>;
+    declare public /*out*/ readonly checksum: pulumi.Output<string>;
     /**
      * Content of the mounted file encoded using Base-64
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * ID of the context on which the mounted file is defined
      */
-    public readonly contextId!: pulumi.Output<string | undefined>;
+    declare public readonly contextId: pulumi.Output<string | undefined>;
     /**
      * Free-form description of the mounted file
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * ID of the module on which the mounted file is defined
      */
-    public readonly moduleId!: pulumi.Output<string | undefined>;
-    public readonly mountedFileId!: pulumi.Output<string>;
+    declare public readonly moduleId: pulumi.Output<string | undefined>;
+    declare public readonly mountedFileId: pulumi.Output<string>;
     /**
      * Relative path to the mounted file, without the /mnt/workspace/ prefix
      */
-    public readonly relativePath!: pulumi.Output<string>;
+    declare public readonly relativePath: pulumi.Output<string>;
     /**
      * ID of the stack on which the mounted file is defined
      */
-    public readonly stackId!: pulumi.Output<string | undefined>;
+    declare public readonly stackId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the content can be read back outside a Run. Defaults to `true`.
      */
-    public readonly writeOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly writeOnly: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a MountedFile resource with the given unique name, arguments, and options.
@@ -79,31 +79,31 @@ export class MountedFile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MountedFileState | undefined;
-            resourceInputs["checksum"] = state ? state.checksum : undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["contextId"] = state ? state.contextId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["moduleId"] = state ? state.moduleId : undefined;
-            resourceInputs["mountedFileId"] = state ? state.mountedFileId : undefined;
-            resourceInputs["relativePath"] = state ? state.relativePath : undefined;
-            resourceInputs["stackId"] = state ? state.stackId : undefined;
-            resourceInputs["writeOnly"] = state ? state.writeOnly : undefined;
+            resourceInputs["checksum"] = state?.checksum;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["contextId"] = state?.contextId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["moduleId"] = state?.moduleId;
+            resourceInputs["mountedFileId"] = state?.mountedFileId;
+            resourceInputs["relativePath"] = state?.relativePath;
+            resourceInputs["stackId"] = state?.stackId;
+            resourceInputs["writeOnly"] = state?.writeOnly;
         } else {
             const args = argsOrState as MountedFileArgs | undefined;
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.relativePath === undefined) && !opts.urn) {
+            if (args?.relativePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relativePath'");
             }
             resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
-            resourceInputs["contextId"] = args ? args.contextId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["moduleId"] = args ? args.moduleId : undefined;
-            resourceInputs["mountedFileId"] = args ? args.mountedFileId : undefined;
-            resourceInputs["relativePath"] = args ? args.relativePath : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
-            resourceInputs["writeOnly"] = args ? args.writeOnly : undefined;
+            resourceInputs["contextId"] = args?.contextId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["moduleId"] = args?.moduleId;
+            resourceInputs["mountedFileId"] = args?.mountedFileId;
+            resourceInputs["relativePath"] = args?.relativePath;
+            resourceInputs["stackId"] = args?.stackId;
+            resourceInputs["writeOnly"] = args?.writeOnly;
             resourceInputs["checksum"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

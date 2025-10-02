@@ -19,7 +19,7 @@ export class GitlabIntegration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/gitlabIntegration:GitlabIntegration';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/gitlabIntegration:GitlabIntegration';
 
     /**
      * Returns true if the given object is an instance of GitlabIntegration.  This is designed to work even
@@ -35,53 +35,53 @@ export class GitlabIntegration extends pulumi.CustomResource {
     /**
      * API host URL
      */
-    public readonly apiHost!: pulumi.Output<string>;
+    declare public readonly apiHost: pulumi.Output<string>;
     /**
      * Description of the integration
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Is the GitLab integration the default for all spaces? If set to `true` the space must be set to `root` in `space_id` or
      * left empty which uses the default
      */
-    public readonly isDefault!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDefault: pulumi.Output<boolean | undefined>;
     /**
      * Labels to set on the integration
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The friendly name of the integration
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The GitLab API Token
      */
-    public readonly privateToken!: pulumi.Output<string>;
+    declare public readonly privateToken: pulumi.Output<string>;
     /**
      * ID (slug) of the space the integration is in; Default: `root`
      */
-    public readonly spaceId!: pulumi.Output<string | undefined>;
+    declare public readonly spaceId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the integration should use git checkout. If false source code will be downloaded using the VCS API.
      * Defaults to true.
      */
-    public readonly useGitCheckout!: pulumi.Output<boolean>;
+    declare public readonly useGitCheckout: pulumi.Output<boolean>;
     /**
      * User facing host URL.
      */
-    public readonly userFacingHost!: pulumi.Output<string>;
+    declare public readonly userFacingHost: pulumi.Output<string>;
     /**
      * VCS checks configured for GitLab repositories. Possible values: INDIVIDUAL, AGGREGATED, ALL. Defaults to INDIVIDUAL.
      */
-    public readonly vcsChecks!: pulumi.Output<string | undefined>;
+    declare public readonly vcsChecks: pulumi.Output<string | undefined>;
     /**
      * Secret for webhooks originating from GitLab repositories
      */
-    public /*out*/ readonly webhookSecret!: pulumi.Output<string>;
+    declare public /*out*/ readonly webhookSecret: pulumi.Output<string>;
     /**
      * URL for webhooks originating from GitLab repositories
      */
-    public /*out*/ readonly webhookUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly webhookUrl: pulumi.Output<string>;
 
     /**
      * Create a GitlabIntegration resource with the given unique name, arguments, and options.
@@ -96,39 +96,39 @@ export class GitlabIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GitlabIntegrationState | undefined;
-            resourceInputs["apiHost"] = state ? state.apiHost : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateToken"] = state ? state.privateToken : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
-            resourceInputs["useGitCheckout"] = state ? state.useGitCheckout : undefined;
-            resourceInputs["userFacingHost"] = state ? state.userFacingHost : undefined;
-            resourceInputs["vcsChecks"] = state ? state.vcsChecks : undefined;
-            resourceInputs["webhookSecret"] = state ? state.webhookSecret : undefined;
-            resourceInputs["webhookUrl"] = state ? state.webhookUrl : undefined;
+            resourceInputs["apiHost"] = state?.apiHost;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateToken"] = state?.privateToken;
+            resourceInputs["spaceId"] = state?.spaceId;
+            resourceInputs["useGitCheckout"] = state?.useGitCheckout;
+            resourceInputs["userFacingHost"] = state?.userFacingHost;
+            resourceInputs["vcsChecks"] = state?.vcsChecks;
+            resourceInputs["webhookSecret"] = state?.webhookSecret;
+            resourceInputs["webhookUrl"] = state?.webhookUrl;
         } else {
             const args = argsOrState as GitlabIntegrationArgs | undefined;
-            if ((!args || args.apiHost === undefined) && !opts.urn) {
+            if (args?.apiHost === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiHost'");
             }
-            if ((!args || args.privateToken === undefined) && !opts.urn) {
+            if (args?.privateToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateToken'");
             }
-            if ((!args || args.userFacingHost === undefined) && !opts.urn) {
+            if (args?.userFacingHost === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userFacingHost'");
             }
-            resourceInputs["apiHost"] = args ? args.apiHost : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isDefault"] = args ? args.isDefault : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiHost"] = args?.apiHost;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isDefault"] = args?.isDefault;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
             resourceInputs["privateToken"] = args?.privateToken ? pulumi.secret(args.privateToken) : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
-            resourceInputs["useGitCheckout"] = args ? args.useGitCheckout : undefined;
-            resourceInputs["userFacingHost"] = args ? args.userFacingHost : undefined;
-            resourceInputs["vcsChecks"] = args ? args.vcsChecks : undefined;
+            resourceInputs["spaceId"] = args?.spaceId;
+            resourceInputs["useGitCheckout"] = args?.useGitCheckout;
+            resourceInputs["userFacingHost"] = args?.userFacingHost;
+            resourceInputs["vcsChecks"] = args?.vcsChecks;
             resourceInputs["webhookSecret"] = undefined /*out*/;
             resourceInputs["webhookUrl"] = undefined /*out*/;
         }

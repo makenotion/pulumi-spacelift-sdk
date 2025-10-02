@@ -19,7 +19,7 @@ export class NamedWebhook extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'spacelift:index/namedWebhook:NamedWebhook';
+    public static readonly __pulumiType = 'spacelift-terraform-provider:index/namedWebhook:NamedWebhook';
 
     /**
      * Returns true if the given object is an instance of NamedWebhook.  This is designed to work even
@@ -35,29 +35,29 @@ export class NamedWebhook extends pulumi.CustomResource {
     /**
      * enables or disables sending webhooks.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * endpoint to send the requests to
      */
-    public readonly endpoint!: pulumi.Output<string>;
+    declare public readonly endpoint: pulumi.Output<string>;
     /**
      * labels for the webhook to use when referring in policies or filtering them
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * the name for the webhook which will also be used to generate the id
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly namedWebhookId!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly namedWebhookId: pulumi.Output<string>;
     /**
      * secret used to sign each request so you're able to verify that the request comes from us. Defaults to an empty value.
      * Note that once it's created, it will be just an empty string in the state due to security reasons.
      */
-    public readonly secret!: pulumi.Output<string | undefined>;
+    declare public readonly secret: pulumi.Output<string | undefined>;
     /**
      * ID of the space the webhook is in
      */
-    public readonly spaceId!: pulumi.Output<string>;
+    declare public readonly spaceId: pulumi.Output<string>;
 
     /**
      * Create a NamedWebhook resource with the given unique name, arguments, and options.
@@ -72,31 +72,31 @@ export class NamedWebhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamedWebhookState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namedWebhookId"] = state ? state.namedWebhookId : undefined;
-            resourceInputs["secret"] = state ? state.secret : undefined;
-            resourceInputs["spaceId"] = state ? state.spaceId : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namedWebhookId"] = state?.namedWebhookId;
+            resourceInputs["secret"] = state?.secret;
+            resourceInputs["spaceId"] = state?.spaceId;
         } else {
             const args = argsOrState as NamedWebhookArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.endpoint === undefined) && !opts.urn) {
+            if (args?.endpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpoint'");
             }
-            if ((!args || args.spaceId === undefined) && !opts.urn) {
+            if (args?.spaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spaceId'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namedWebhookId"] = args ? args.namedWebhookId : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namedWebhookId"] = args?.namedWebhookId;
             resourceInputs["secret"] = args?.secret ? pulumi.secret(args.secret) : undefined;
-            resourceInputs["spaceId"] = args ? args.spaceId : undefined;
+            resourceInputs["spaceId"] = args?.spaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secret"] };

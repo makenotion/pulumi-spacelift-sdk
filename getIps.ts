@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 export function getIps(args?: GetIpsArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("spacelift:index/getIps:getIps", {
+    return pulumi.runtime.invoke("spacelift-terraform-provider:index/getIps:getIps", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
@@ -30,7 +30,7 @@ export interface GetIpsResult {
 export function getIpsOutput(args?: GetIpsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("spacelift:index/getIps:getIps", {
+    return pulumi.runtime.invokeOutput("spacelift-terraform-provider:index/getIps:getIps", {
         "id": args.id,
     }, opts, utilities.getPackage());
 }
