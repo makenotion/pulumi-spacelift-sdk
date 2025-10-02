@@ -21,7 +21,7 @@
         "name": "terraform-provider",
         "version": "0.13.0",
         "parameterization": {
-            "name": "spacelift",
+            "name": "spacelift-terraform-provider",
             "version": "1.31.0",
             "value": "eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL3NwYWNlbGlmdC1pby9zcGFjZWxpZnQiLCJ2ZXJzaW9uIjoiMS4zMS4wIn19"
         }
